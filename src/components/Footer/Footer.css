@@ -1,0 +1,14 @@
+.footer {
+  margin-top: 5vh;
+  border-top: 1px solid rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+  color: rgba(255, 255, 255, 0.87);
+  font-family: 'ByteBounce';
+}
+
+.inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--mantine-spacing-md) 5vw;
+}

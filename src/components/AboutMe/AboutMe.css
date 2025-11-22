@@ -1,0 +1,11 @@
+#aboutMe {
+    width: 60vw;
+    font-size: 1.8vw;
+    margin-top: 1vh;
+    text-align: justify;
+}
+
+.highlight {
+    font-weight: 600;
+    color: #0ea5e9;
+}

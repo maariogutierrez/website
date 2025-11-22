@@ -1,0 +1,58 @@
+.card {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  align-items: stretch;
+  width: 35vw;
+
+  transition: transform 180ms ease;
+}
+
+.card:hover {
+  transform: scale(1.02);
+}
+
+.image {
+  max-width: 18vw;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+
+.title {
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.body {
+  padding: var(--mantine-spacing-md);
+}
+
+.card .body {
+  font-size: 15px;
+}
+
+.card .title {
+  font-size: 1.4rem;
+}
+
+.card .tag {
+  font-size: 0.9rem;
+  letter-spacing: 0.06em;
+}
+
+.card .author,
+.card .date {
+  font-size: 1rem;
+}
+
+.project-link {
+  color: inherit;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.project-link .image {
+  display: block;
+}
