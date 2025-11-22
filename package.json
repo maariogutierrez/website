@@ -15,6 +15,8 @@
     "@mantine/form": "^8.3.9",
     "@mantine/hooks": "^8.3.9",
     "@mantinex/dev-icons": "^2.0.0",
+    "embla-carousel-autoplay": "^8.6.0",
+    "embla-carousel-react": "^8.6.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-icons": "^5.5.0",

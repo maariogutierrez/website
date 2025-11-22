@@ -6,9 +6,17 @@ import Experience from './components/Experience/Experience'
 import Footer from './components/Footer/Footer'
 import GetInTouch from './components/GetInTouch/GetInTouch'
 import Header from './components/Header/Header'
+import Carousel from './components/Carousel/Carousel'
 import { Toaster } from 'sonner'
 
 function App() {
+  const OPTIONS = { loop: true }
+  const IMAGES = [
+    '/media/gallery/first_year_award.jpg',
+    '/media/gallery/indesiahack_group_winners.jpg',
+    '/media/gallery/first_year_award.jpg',
+    '/media/gallery/indesiahack_group_winners.jpg'
+  ]
 
   return (
     <>
@@ -16,8 +24,9 @@ function App() {
       <Header></Header>
       <div id='content'>
         <Experience></Experience>
-        <Technologies></Technologies>
+        <Carousel images={IMAGES} options={OPTIONS}></Carousel>
         <Portfolio></Portfolio>
+        <Technologies></Technologies>
         <AboutMe></AboutMe>
         <GetInTouch></GetInTouch>
       </div>
