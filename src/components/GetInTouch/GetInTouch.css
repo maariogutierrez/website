@@ -1,9 +1,10 @@
 #getInTouch {
-    margin-top: 3vw;
+    margin-top: 2vw;
 }
 
 #getInTouch .title {
     font-size: 4vw;
+    margin: 0.5vw 0 1.2vw;
 }
 
 #getInTouch .subtitle .mantine-InputWrapper-label {

@@ -1,3 +1,45 @@
 #experience {
     width: 60vw;
+    margin-top: 2vh;
 }
+
+#experience .jobs {
+    position: relative;
+    margin: 1vh auto;
+}
+
+#experience .job {
+    display: flex;
+    flex-direction: column;
+}
+
+#experience .job-details {
+    display: flex;
+    justify-content: flex-start;
+    gap: 0.5vw;
+    align-items: baseline;
+    text-align: justify;
+}
+
+#experience .job .job-title {
+    font-size: 2vw;
+}
+
+#experience .job .job-duration {
+    font-size: 1.5vw;
+    color: gray;
+}
+
+#experience .job .job-description {
+    font-size: 1.7vw;
+    margin-top: 0.5vh;
+    min-height: 10vh;
+    text-align: justify;
+    margin-left: 1.5vw;
+}
+
+#experience .job .job-description .highlight {
+    color: #0ea5e9;
+    font-weight: 700;
+}
+
