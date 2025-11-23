@@ -8,9 +8,21 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0;
-  margin: var(--mantine-spacing-md) 20vw;
+  padding: 2vh 0;
+  margin: var(--mantine-spacing-md) 17.5vw;
   border-bottom: 1px solid rgba(255, 255, 255, 0.87);
+}
+
+.profile {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 2vw;
+}
+
+.profile img {
+  height: 10vh;
+  width: auto;
 }
 
 .header__name {

@@ -1,39 +1,72 @@
-import { useState } from 'react'
-import useEmblaCarousel from 'embla-carousel-react'
+import { useRef, useState } from 'react'
+import { Carousel as MantineCarousel } from '@mantine/carousel'
+import { Image } from '@mantine/core'
 import Autoplay from 'embla-carousel-autoplay'
 import './Carousel.css'
 
-const Carousel = (props) => {
-  const { images, options } = props
+const Carousel = ({ images = [], options = {} }) => {
   const [selectedImage, setSelectedImage] = useState(null)
-  const [Ref, _] = useEmblaCarousel(options, [
-    Autoplay({ playOnInit: true, 
-      delay: 3000,
+  const normalizedOptions = options ?? {}
+  const { delay, ...emblaOptions } = normalizedOptions
+  const autoplayDelay = delay ?? 3000
+  const autoplay = useRef(
+    Autoplay({
+      playOnInit: true,
+      delay: autoplayDelay,
       stopOnInteraction: false,
-      stopOnMouseEnter: true })
-  ])
+      stopOnMouseEnter: true
+    })
+  )
 
   return (
     <div>
-        <h2>Gallery</h2>
-        <div className="embla">
-        <div className="embla__viewport" ref={Ref}>
-            <div className="embla__container">
-            {images.map((image, index) => (
-                <div className="embla__slide" key={index}>
-                <img src={image} alt={`Slide ${index + 1}`} onClick={() => setSelectedImage(image)} />
-                </div>
-            ))}
-            </div>
-        </div>
-        </div>
-        {selectedImage && (
-          <div className="embla__lightbox" onClick={() => setSelectedImage(null)} role="dialog" aria-modal="true">
-            <div className="embla__lightbox__content" onClick={(event) => event.stopPropagation()}>
-              <img src={selectedImage} alt="Selected slide" />
-            </div>
+    <h2>Gallery</h2>
+    <section className="gallery-carousel">
+      <MantineCarousel
+        withIndicators
+        slideSize="33%"
+        slideGap="lg"
+        align="start"
+        height={320}
+        emblaOptions={{ loop: true, ...emblaOptions }}
+        plugins={[autoplay.current]}
+        onMouseEnter={autoplay.current.stop}
+        onMouseLeave={autoplay.current.reset}
+        classNames={{
+          root: 'gallery-carousel__root',
+          controls: 'gallery-carousel__controls',
+          indicator: 'gallery-carousel__indicator'
+        }}
+      >
+        {images.map((image, index) => (
+          <MantineCarousel.Slide key={`${image}-${index}`}>
+            <Image
+              src={image}
+              alt={`Slide ${index + 1}`}
+              radius="md"
+              className="gallery-carousel__image"
+              onClick={() => setSelectedImage(image)}
+            />
+          </MantineCarousel.Slide>
+        ))}
+      </MantineCarousel>
+
+      {selectedImage && (
+        <div
+          className="gallery-carousel__lightbox"
+          onClick={() => setSelectedImage(null)}
+          role="dialog"
+          aria-modal="true"
+        >
+          <div
+            className="gallery-carousel__lightbox-content"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <img src={selectedImage} alt="Selected slide" />
           </div>
-        )}
+        </div>
+      )}
+    </section>
     </div>
   )
 }

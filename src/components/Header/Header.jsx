@@ -10,7 +10,10 @@ export default function Header() {
       <div className='inner'>
         <HoverCard.Root openDelay={150} closeDelay={150}>
           <HoverCard.Trigger asChild>
-            <h2 className="header__name">Mario Gutiérrez</h2>
+            <div className='profile'>
+              <img src='media/favicon-192x192.png' />
+              <h2 className="header__name">Mario Gutiérrez</h2>
+            </div>
           </HoverCard.Trigger>
           <HoverCard.Content className="header-hovercard" sideOffset={12} align="start">
             <div className="header-hovercard__location">

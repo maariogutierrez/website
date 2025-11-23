@@ -4,13 +4,31 @@
     align-items: flex-start;
     gap: 2vh;
 
-    width: 60vw;
+    width: 65vw;
 }
 
 .button.portfolio {
-    margin-top: 2vh;
+    margin-top: 3vh;
 }
 
 .heatmap {
-    padding: 1.5rem;
+    display: flex;
+    justify-content: center;
+    padding: 3vh 1vw 5vh;
+    width: 65vw;
+    overflow: visible;
+}
+
+.react-activity-calendar__tooltip {
+    background-color: #111;
+    color: rgba(255, 255, 255, 0.9);
+    padding: 0.75rem 1rem;
+    border-radius: 12px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.55);
+    font-family: 'ByteBounce', sans-serif;
+    font-size: 0.95rem;
+    border: none;
+}
+.react-activity-calendar__tooltip-arrow {
+    fill: #111;
 }

@@ -1,36 +1,58 @@
-.embla {
-  overflow: hidden;
-  width: 60vw;
-  margin: 2vh auto;
-  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
-  mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+.gallery-carousel {
+  padding: 5vh 0 1vh;
 }
-.embla__container {
-  display: flex;
+
+.gallery-carousel__title {
+  margin-bottom: 1.75rem;
+  text-align: center;
+  font-size: clamp(1.5rem, 2vw, 2rem);
 }
-.embla__slide {
-  flex: 0 0 50%;
-  min-width: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0 1vw;
-  min-height: 42vh;
+
+.gallery-carousel__root {
+  width: 65vw;
+  height: 22vw;
+  margin: 0 auto;
+  overflow: visible;
 }
-.embla__slide img {
-  max-height: 40vh;
+
+.gallery-carousel__controls {
+  gap: 0.75rem;
+}
+
+.gallery-carousel__controls button {
+  background: rgba(255, 255, 255, 0.75);
+  color: #111;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  border: none;
+}
+
+.gallery-carousel__indicator {
+  width: 30px;
+  height: 4px;
+  border-radius: 999px;
+  background-color: rgba(255, 255, 255, 0.4);
+  transition: background-color 120ms ease, width 120ms ease;
+}
+
+.gallery-carousel__indicator[data-active] {
+  background-color: var(--mantine-color-blue-5, #5c6ef8);
+  width: 38px;
+}
+
+.gallery-carousel__image {
+  margin-top: 4px;
+  max-height: 18vw;
   width: auto;
-  object-fit: contain;
-  border-radius: 6px;
-  transition: max-height 180ms ease;
-  cursor: pointer;
+  object-fit: cover;
+  cursor: zoom-in;
+  transition: transform 200ms ease, box-shadow 200ms ease;
 }
 
-.embla__slide img:hover {
-    max-height: 41vh;
+.gallery-carousel__image:hover {
+  transform: translateY(-4px);
 }
 
-.embla__lightbox {
+.gallery-carousel__lightbox {
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.85);
@@ -42,7 +64,7 @@
   cursor: zoom-out;
 }
 
-.embla__lightbox__content {
+.gallery-carousel__lightbox-content {
   max-height: 80vh;
   display: flex;
   justify-content: center;
@@ -50,7 +72,7 @@
   cursor: auto;
 }
 
-.embla__lightbox__content img {
+.gallery-carousel__lightbox-content img {
   max-height: 80vh;
   border-radius: 10px;
   box-shadow: 0 25px 45px rgba(0, 0, 0, 0.55);
