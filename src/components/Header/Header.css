@@ -75,3 +75,48 @@
 .header-hovercard__arrow {
   fill: #111;
 }
+
+.header-flag {
+  width: 1.5vw;
+}
+
+.mobile-only {
+  display: none;
+}
+
+.desktop-only {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .mobile-only {
+    display: block;
+  }
+
+  .desktop-only {
+    display: none;
+  }
+
+  .header .inner {
+    padding: 2vh 5vw;
+    margin: 0;
+    border-bottom: none;
+  }
+
+  .profile {
+    gap: 4vw;
+  }
+
+  .profile img {
+    height: 7vh;
+    width: auto;
+  }
+
+  .header__name {
+    font-size: 10vw;
+  }
+
+  .header-flag {
+    width: 6vw;
+  }
+}

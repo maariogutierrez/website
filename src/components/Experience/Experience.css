@@ -68,3 +68,38 @@
     font-weight: 700;
 }
 
+@media (max-width: 768px) {
+    #experience {
+        width: 90vw;
+    }
+
+    #experienceTitle {
+        font-size: 7vh;
+    }
+
+    #experience .job-details {
+        text-align: left;
+        align-items: center;
+        gap: 4vw;
+    }
+
+    #experience .job .icon {
+        width: 10vw;    
+    }
+
+    #experience .job .job-title {
+        font-size: 6vw;
+        line-height: 1;
+    }
+
+    #experience .job .job-duration {
+        font-size: 5vw;
+        line-height: 1;
+    }
+
+    #experience .job .job-description {
+        margin-top: 2vh;
+        text-align: left;
+        font-size: 5vw;
+    }
+}

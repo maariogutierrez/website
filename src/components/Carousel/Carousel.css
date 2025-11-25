@@ -1,5 +1,5 @@
 .gallery-carousel {
-  padding: 5vh 0 1vh;
+  padding: 0;
 }
 
 .gallery-carousel__title {
@@ -76,4 +76,28 @@
   max-height: 80vh;
   border-radius: 10px;
   box-shadow: 0 25px 45px rgba(0, 0, 0, 0.55);
+}
+
+@media (max-width: 768px) {
+
+    #carouselTitle{
+      font-size: 7vh;
+    }
+
+    .gallery-carousel__root {
+      width: 90vw;
+      height: 60vw;
+    }
+
+    .gallery-carousel__image {
+      max-height: 50vw;
+    }
+
+    .gallery-carousel__image:hover {
+      transform: translateY(0);
+    }
+    
+    .gallery-carousel__lightbox-content img {
+      max-width: 90vw;
+    }
 }

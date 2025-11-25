@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { GithubIcon } from '@mantinex/dev-icons'
 import { FaLinkedin } from "react-icons/fa";
 import { ActionIcon, Button, Group, Popover, Stack, Text } from '@mantine/core';
+import { useLanguage } from '../../context/LanguageContext';
 import './Footer.css';
 
 const CV_FILES = {
@@ -10,6 +11,7 @@ const CV_FILES = {
 };
 
 export default function Footer() {
+  const { language } = useLanguage();
   const [popoverOpened, setPopoverOpened] = useState(false);
 
   const handleDownload = (lang) => {
@@ -47,12 +49,12 @@ export default function Footer() {
               className="footer__download-btn"
               onClick={() => setPopoverOpened((o) => !o)}
             >
-              Download my CV
+              {language === 'en' ? 'Download my CV' : 'Descargar mi CV'}
             </button>
           </Popover.Target>
           <Popover.Dropdown>
             <Text size="sm" fw={600} className="footer__popover-title">
-              Choose language
+              {language === 'en' ? 'Choose language' : 'Elige idioma'}
             </Text>
             <Stack gap="xs" mt="xs">
               <Button
