@@ -1,0 +1,122 @@
+.header {
+  background-color: #242424;
+  color: rgba(255, 255, 255, 0.87);
+  font-family: 'ByteBounce';
+}
+
+.header .inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2vh 0;
+  margin: var(--mantine-spacing-md) 17.5vw;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.87);
+}
+
+.profile {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 2vw;
+}
+
+.profile img {
+  height: 10vh;
+  width: auto;
+}
+
+.header__name {
+  margin: 0;
+  cursor: pointer;
+  line-height: 1;
+}
+
+
+.header-hovercard {
+  background-color: #111;
+  border: none;
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  max-width: 35vw;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.55);
+  z-index: 1000;
+}
+
+.header-hovercard__location {
+  margin: 0;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  font-size: 1.2vw;
+  color: gray;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1vw;
+}
+
+.header-hovercard__location img {
+  height: 3vh;
+  width: auto;
+}
+
+.header-hovercard__body {
+  margin: 0;
+  font-size: 1.4vw;
+  line-height: 1.4;
+}
+
+.header-hovercard__highlight {
+  color: #0ea5e9;
+  font-weight: 600;
+}
+
+.header-hovercard__arrow {
+  fill: #111;
+}
+
+.header-flag {
+  width: 1.5vw;
+}
+
+.mobile-only {
+  display: none;
+}
+
+.desktop-only {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .mobile-only {
+    display: block;
+  }
+
+  .desktop-only {
+    display: none;
+  }
+
+  .header .inner {
+    padding: 2vh 5vw;
+    margin: 0;
+    border-bottom: none;
+  }
+
+  .profile {
+    gap: 4vw;
+  }
+
+  .profile img {
+    height: 7vh;
+    width: auto;
+  }
+
+  .header__name {
+    font-size: 10vw;
+  }
+
+  .header-flag {
+    width: 6vw;
+  }
+}

@@ -1,0 +1,118 @@
+#experience {
+    width: 65vw;
+}
+
+#experience .jobs {
+    position: relative;
+    margin: 1vh auto;
+}
+
+#experience .job {
+    display: flex;
+    flex-direction: column;
+}
+
+#experience .job-details {
+    display: flex;
+    justify-content: flex-start;
+    gap: 1vw;
+    align-items: baseline;
+    text-align: justify;
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 0;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+}
+
+#experience .job-details:focus-visible {
+    outline: 2px solid #0ea5e9;
+    border-radius: 4px;
+    outline-offset: 6px;
+}
+
+#experience .job .icon {
+    align-self: center;    
+}
+
+#experience .job .job-title-and-duration {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    gap: 1vw;
+}
+
+#experience .job .job-title {
+    font-size: 2vw;
+}
+
+#experience .job .job-duration {
+    font-size: 1.7vw;
+    color: gray;
+}
+
+#experience .job .job-description {
+    font-size: 1.7vw;
+    margin-left: 1.5vw;
+    margin-top: 0;
+    text-align: justify;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 250ms ease, opacity 180ms ease, margin-top 180ms ease;
+}
+
+#experience .job .job-description--open {
+    max-height: 60vh;
+    margin-top: 0.5vh;
+    opacity: 1;
+}
+
+#experience .job .job-description .highlight {
+    color: #0ea5e9;
+    font-weight: 700;
+}
+
+@media (max-width: 768px) {
+    #experience {
+        width: 90vw;
+    }
+
+    #experienceTitle {
+        font-size: 7vh;
+    }
+
+    #experience .job-details {
+        text-align: left;
+        align-items: center;
+        gap: 4vw;
+    }
+
+    #experience .job .icon {
+        width: 10vw;    
+    }
+
+    #experience .job .job-title-and-duration {
+        display: flex;
+        flex-direction: column;
+        gap: 1vw;
+    }
+
+    #experience .job .job-title {
+        font-size: 7vw;
+        line-height: 1;
+    }
+
+    #experience .job .job-duration {
+        font-size: 6vw;
+        line-height: 1;
+    }
+
+    #experience .job .job-description {
+        margin-top: 2vh;
+        text-align: left;
+        font-size: 5vw;
+    }
+}

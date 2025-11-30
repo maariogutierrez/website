@@ -1,0 +1,24 @@
+#aboutMe {
+    width: 65vw;
+    font-size: 1.8vw;
+    margin-top: 1vh;
+    text-align: justify;
+}
+
+.highlight {
+    font-weight: 600;
+    color: #0ea5e9;
+}
+
+@media (max-width: 768px) {
+    #aboutMe {
+        width: 90vw;
+        font-size: 5vw;
+        margin-top: 0;
+    }
+
+    #aboutMeTitle {
+        font-size: 7vh;
+        margin-top: 1vh;
+    }
+}
