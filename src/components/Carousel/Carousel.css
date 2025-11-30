@@ -86,11 +86,11 @@
 
     .gallery-carousel__root {
       width: 90vw;
-      height: 60vw;
+      height: 65vw;
     }
 
     .gallery-carousel__image {
-      max-height: 50vw;
+      max-height: 55vw;
     }
 
     .gallery-carousel__image:hover {

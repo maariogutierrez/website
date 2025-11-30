@@ -32,3 +32,21 @@
 .react-activity-calendar__tooltip-arrow {
     fill: #111;
 }
+
+@media (max-width: 768px) {
+    #portfolio {
+        width: 90vw;
+    }
+
+    #portfolioTitle {
+        font-size: 7vh;
+    }
+
+    .heatmap {
+        display: none;
+    }
+
+    .button.portfolio {
+        font-size: 5vw;
+    }
+}

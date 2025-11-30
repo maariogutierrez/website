@@ -35,7 +35,7 @@ function Portfolio() {
 
   return (
     <div>
-      <h2>Portfolio</h2>
+      <h2 id='portfolioTitle'>Portfolio</h2>
       <div className="heatmap">
         <GitHubCalendar username="maariogutierrez" tooltips={calendarTooltips} labels={labels} />
       </div>

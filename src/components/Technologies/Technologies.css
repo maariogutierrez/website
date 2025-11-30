@@ -1,3 +1,14 @@
 #technologies {
     width: 65vw;
 }
+
+@media (max-width: 768px) {
+    #technologies {
+        width: 90vw;
+    }
+
+    #technologiesTitle {
+        font-size: 7vh;
+    }
+}
+    

@@ -56,9 +56,10 @@ function Experience() {
                                     aria-controls={descriptionId}
                                 >
                                     {isOpen ? <IconChevronUp size={14} stroke={1.5} className='icon' /> : <IconChevronDown size={14} stroke={1.5} className='icon' />}
-                                    
-                                    <div className='job-title'>{job.title}</div>
-                                    <div className='job-duration'>{job.duration}</div>
+                                    <div className='job-title-and-duration'>
+                                        <div className='job-title'>{job.title}</div>
+                                        <div className='job-duration'>{job.duration}</div>
+                                    </div>
                                 </button>
                                 <div
                                     id={descriptionId}
@@ -93,8 +94,10 @@ function Experience() {
                                 >
                                     {isOpen ? <IconChevronUp size={14} stroke={1.5} className='icon' /> : <IconChevronDown size={14} stroke={1.5} className='icon' />}
                                     
-                                    <div className='job-title'>{job.title}</div>
-                                    <div className='job-duration'>{job.duration}</div>
+                                    <div className='job-title-and-duration'>
+                                        <div className='job-title'>{job.title}</div>
+                                        <div className='job-duration'>{job.duration}</div>
+                                    </div>
                                 </button>
                                 <div
                                     id={descriptionId}

@@ -6,7 +6,7 @@ function Technologies () {
     const { language, changeLanguage } = useLanguage();
     return (
         <div>
-            { (language==='en') ? <h2>What I work with</h2> : <h2>Con qué trabajo</h2> }
+            { (language==='en') ? <h2 id='technologiesTitle'>What I work with</h2> : <h2 id='technologiesTitle'>Con qué trabajo</h2> }
             <div id='technologies'>
                 <TechnologiesMarquee duration={40}></TechnologiesMarquee>
             </div>

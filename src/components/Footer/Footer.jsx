@@ -30,7 +30,7 @@ export default function Footer() {
   return (
     <div className='footer'>
       <div className='inner'>
-        <h2>Mario Gutiérrez</h2>
+        <h2 id='footerTitle'>Mario Gutiérrez</h2>
         <Popover
           opened={popoverOpened}
           onChange={setPopoverOpened}

@@ -20,3 +20,27 @@
 #getInTouch .subtitle textarea::placeholder {
     font-size: clamp(13px, 1.1vw, 16px);
 }
+
+@media (max-width: 768px) {
+    #getInTouch .title {
+        font-size: 7vh;
+    }
+
+    #getInTouch .subtitle .mantine-InputWrapper-label {
+        font-size: 5vw;
+    }
+
+    #getInTouch .subtitle input,
+    #getInTouch .subtitle textarea {
+        font-size: 4vw;
+    }
+
+    #getInTouch .subtitle input::placeholder,
+    #getInTouch .subtitle textarea::placeholder {
+        font-size: 4vw;
+    }
+
+    .button {
+        font-size: 5vw;
+    }
+}

@@ -8,7 +8,7 @@ function AboutMe () {
         <div>
             {language === 'en' ? (
                 <>
-                    <h2>About me</h2>
+                    <h2 id='aboutMeTitle'>About me</h2>
                     <div id='aboutMe'>
                         <span>
                             Hello! I am Mario Gutiérrez, a <span className="highlight">data engineer</span> from Universidad Politécnica de Madrid. 
@@ -24,7 +24,7 @@ function AboutMe () {
                 </>
             ) : (
                 <>
-                    <h2>Sobre mí</h2>
+                    <h2 id='aboutMeTitle'>Sobre mí</h2>
                     <div id='aboutMe'>
                         <span>
                             Hola! Soy Mario Gutiérrez, un <span className="highlight">ingeniero de datos</span> de la Universidad Politécnica de Madrid. 

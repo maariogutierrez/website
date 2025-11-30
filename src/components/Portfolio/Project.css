@@ -20,17 +20,8 @@
   flex-shrink: 0;
 }
 
-.title {
-  font-weight: 500;
-  line-height: 1.2;
-}
-
 .body {
   padding: var(--mantine-spacing-md);
-}
-
-.card .body {
-  font-size: 15px;
 }
 
 .card .title {
@@ -55,4 +46,26 @@
 
 .project-link .image {
   display: block;
+}
+
+@media (max-width: 768px) {
+  .card{
+    width: 90vw;
+  }
+  .image {
+    max-width: 30vw;
+  }
+
+  .card .title {
+    font-size: 6vw;
+  }
+
+  .card .tag {
+    font-size: 3.5vw;
+  }
+
+  .card .author,
+  .card .date {
+    font-size: 4vw;
+  }
 }

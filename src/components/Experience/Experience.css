@@ -15,7 +15,7 @@
 #experience .job-details {
     display: flex;
     justify-content: flex-start;
-    gap: 0.5vw;
+    gap: 1vw;
     align-items: baseline;
     text-align: justify;
     width: 100%;
@@ -37,12 +37,19 @@
     align-self: center;    
 }
 
+#experience .job .job-title-and-duration {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    gap: 1vw;
+}
+
 #experience .job .job-title {
     font-size: 2vw;
 }
 
 #experience .job .job-duration {
-    font-size: 1.5vw;
+    font-size: 1.7vw;
     color: gray;
 }
 
@@ -87,13 +94,19 @@
         width: 10vw;    
     }
 
+    #experience .job .job-title-and-duration {
+        display: flex;
+        flex-direction: column;
+        gap: 1vw;
+    }
+
     #experience .job .job-title {
-        font-size: 6vw;
+        font-size: 7vw;
         line-height: 1;
     }
 
     #experience .job .job-duration {
-        font-size: 5vw;
+        font-size: 6vw;
         line-height: 1;
     }
 
