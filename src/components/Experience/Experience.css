@@ -1,10 +1,10 @@
 #experience {
-    width: 65vw;
+    width: 70vw;
 }
 
 #experience .jobs {
     position: relative;
-    margin: 1vh auto;
+    margin: 1vh auto 0;
 }
 
 #experience .job {
