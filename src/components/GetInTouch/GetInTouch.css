@@ -23,7 +23,7 @@
 
 @media (max-width: 768px) {
     #getInTouch .title {
-        font-size: 7vh;
+        font-size: 12vw;
     }
 
     #getInTouch .subtitle .mantine-InputWrapper-label {
