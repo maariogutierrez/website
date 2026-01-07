@@ -44,3 +44,10 @@ h2 {
   background-color: #2a72b1;
   transform: scale(1.02);
 }
+
+.spinner-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
