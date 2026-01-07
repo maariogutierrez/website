@@ -98,7 +98,7 @@
   }
 
   .header .inner {
-    padding: 2vh 5vw;
+    padding: 4vw 5vw;
     margin: 0;
     border-bottom: none;
   }
@@ -108,7 +108,7 @@
   }
 
   .profile img {
-    height: 7vh;
+    height: 15vw;
     width: auto;
   }
 

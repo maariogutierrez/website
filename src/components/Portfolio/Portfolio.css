@@ -39,7 +39,7 @@
     }
 
     #portfolioTitle {
-        font-size: 7vh;
+        font-size: 12vw;
     }
 
     .heatmap {
@@ -47,6 +47,6 @@
     }
 
     .button.portfolio {
-        font-size: 5vw;
+        font-size: 6vw;
     }
 }

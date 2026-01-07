@@ -81,7 +81,7 @@
     }
 
     #experienceTitle {
-        font-size: 7vh;
+        font-size: 12vw;
     }
 
     #experience .job-details {
@@ -111,7 +111,7 @@
     }
 
     #experience .job .job-description {
-        margin-top: 2vh;
+        margin-top: 4vw;
         text-align: left;
         font-size: 5vw;
     }
