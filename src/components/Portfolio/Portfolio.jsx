@@ -40,8 +40,9 @@ function Portfolio() {
         <GitHubCalendar username="maariogutierrez" tooltips={calendarTooltips} labels={labels} />
       </div>
       <div id='portfolio'>
-        <Project link='https://github.com/maariogutierrez/GreenChoiceAI' image='/media/projects/GreenChoiceAI.png' tag={language === 'en' ? 'ii edicion indesiahack winner' : 'ganador ii edición indesiahack'} title='GreenChoice AI' date='Nov 22th'></Project>
-        <Project link='https://github.com/maariogutierrez/data-orchestrator' image='/media/projects/DataOrchestrator.png' tag={language === 'en' ? 'university project' : 'proyecto universitario'} title='Data Orchestrator' date='Oct 9th'></Project>
+        <Project link='https://github.com/maariogutierrez/Brainzzz' image='/media/projects/Brainzzz.png' tag={language === 'en' ? 'personal project' : 'proyecto personal'} title='Brainzzz' date={language === 'en' ? 'Jan 21th, 2026' : '21 Ene 2026'}></Project>
+        <Project link='https://github.com/maariogutierrez/GreenChoiceAI' image='/media/projects/GreenChoiceAI.png' tag={language === 'en' ? 'ii edicion indesiahack winner' : 'ganador ii edición indesiahack'} title='GreenChoice AI' date={language === 'en' ? 'Nov 21th, 2025' : '22 Nov 2025'}></Project>
+        <Project link='https://github.com/maariogutierrez/data-orchestrator' image='/media/projects/DataOrchestrator.png' tag={language === 'en' ? 'university project' : 'proyecto universitario'} title='Data Orchestrator' date={language === 'en' ? 'Oct 9th, 2025' : '9 Oct 2025'}></Project>
       </div>
       { (language === 'en') ?
       <Button leftSection={<GithubIcon size={16} />} className='button portfolio' component="a" href="https://github.com/maariogutierrez?tab=repositories" target="_blank" rel="noopener noreferrer">And more...</Button>
