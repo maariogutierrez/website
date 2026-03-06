@@ -23,8 +23,7 @@ function App() {
   const IMAGES = [
     '/media/gallery/first_year_award.jpg',
     '/media/gallery/indesiahack_group_winners.jpg',
-    '/media/gallery/first_year_award.jpg',
-    '/media/gallery/indesiahack_group_winners.jpg'
+    '/media/gallery/talent_arena.jpg'
   ]
 
   useEffect(() =>
