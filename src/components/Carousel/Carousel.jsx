@@ -30,7 +30,6 @@ const Carousel = ({ images = [], options = {} }) => {
         slideSize="33%"
         slideGap="lg"
         align="start"
-        height={320}
         emblaOptions={{ loop: true, ...emblaOptions }}
         plugins={[autoplay.current]}
         onMouseEnter={autoplay.current.stop}
