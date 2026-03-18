@@ -3,11 +3,6 @@
   src: url("../public/fonts/ByteBounce.ttf");
 }
 
-@font-face {
-  font-family: 'UbuntuMono-R';
-  src: url("../public/fonts/UbuntuMono-R.ttf");
-}
-
 ::-webkit-scrollbar {
   display: none;
 }
@@ -17,8 +12,8 @@
   line-height: 1.5;
   font-weight: 400;
   
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: var(--color-text);
+  background-color: var(--color-bg);
   
   display: flex;
   flex-direction: column;
@@ -34,14 +29,15 @@ h2 {
 }
 
 .button {
-  background-color: #3E7CB1;
+  background-color: var(--color-accent);
   font-size: 1.5vw;
+  color: #ffffff;
 
   transition: background-color 180ms ease, transform 180ms ease;
 }
 
 .button:hover {
-  background-color: #2a72b1;
+  background-color: var(--color-accent-strong);
   transform: scale(1.02);
 }
 
