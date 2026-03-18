@@ -10,6 +10,7 @@ import Carousel from './components/Carousel/Carousel'
 import { Toaster } from 'sonner'
 import { useState, useEffect } from 'react'
 import { BeatLoader } from "react-spinners";
+import { useTheme } from './context/ThemeContext'
 
 const override = {
   display: "block",
@@ -19,6 +20,7 @@ const override = {
 
 function App() {
   const [spinner, setSpinner] = useState(true)
+  const { theme } = useTheme()
   const OPTIONS = { loop: true }
   const IMAGES = [
     '/media/gallery/first_year_award.jpg',
@@ -36,7 +38,7 @@ function App() {
       { spinner ? 
         <div className='spinner-center'>
           <BeatLoader
-            color={"#ffffffff"}
+            color={theme === 'dark' ? "#ffffff" : "#0f172a"}
             loading={spinner}
             cssOverride={override}
             size={20}
@@ -46,7 +48,7 @@ function App() {
         </div>
       :
       <>
-        <Toaster position="top-center" />
+        <Toaster position="top-center" theme={theme} />
         <Header></Header>
         <div id='content'>
           <Experience></Experience>

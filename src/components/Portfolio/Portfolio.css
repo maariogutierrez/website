@@ -7,6 +7,17 @@
     width: 65vw;
 }
 
+.portfolio-search {
+    width: 100%;
+    display: flex;
+    align-items: stretch;
+    gap: 0.7rem;
+}
+
+.portfolio-search-input {
+    flex: 1;
+}
+
 .button.portfolio {
     margin-top: 3vh;
 }
@@ -20,22 +31,32 @@
 }
 
 .react-activity-calendar__tooltip {
-    background-color: #111;
-    color: rgba(255, 255, 255, 0.9);
+    background-color: var(--color-tooltip-bg);
+    color: var(--color-tooltip-text);
     padding: 0.75rem 1rem;
     border-radius: 12px;
-    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.55);
+    box-shadow: 0 12px 35px var(--color-shadow);
     font-family: 'ByteBounce', sans-serif;
     font-size: 0.95rem;
     border: none;
 }
 .react-activity-calendar__tooltip-arrow {
-    fill: #111;
+    fill: var(--color-tooltip-bg);
 }
 
 @media (max-width: 768px) {
     #portfolio {
         width: 90vw;
+    }
+
+    .portfolio-search {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .portfolio-search-input input,
+    .portfolio-search-input {
+        font-size: 4.2vw;
     }
 
     #portfolioTitle {

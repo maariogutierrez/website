@@ -7,7 +7,7 @@
 
 .highlight {
     font-weight: 600;
-    color: #0ea5e9;
+    color: var(--color-accent);
 }
 
 @media (max-width: 768px) {

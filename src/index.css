@@ -3,9 +3,33 @@
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color-scheme: light;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+
+  --color-bg: #f2f5f9;
+  --color-surface: #ffffff;
+  --color-surface-strong: #eef2f7;
+  --color-text: #16212e;
+  --color-text-muted: #5f6b78;
+  --color-border: rgba(22, 33, 46, 0.2);
+  --color-border-strong: rgba(22, 33, 46, 0.45);
+  --color-shadow: rgba(8, 23, 41, 0.15);
+  --color-overlay: rgba(0, 0, 0, 0.85);
+  --color-accent: #0ea5e9;
+  --color-accent-strong: #0284c7;
+  --color-tooltip-bg: #ffffff;
+  --color-tooltip-text: rgba(22, 33, 46, 0.92);
+  --color-chip-category-bg: rgba(14, 165, 233, 0.14);
+  --color-chip-category-border: rgba(14, 165, 233, 0.4);
+  --color-chip-category-text: #0c77a8;
+  --color-chip-tag-bg: rgba(249, 115, 22, 0.16);
+  --color-chip-tag-border: rgba(249, 115, 22, 0.38);
+  --color-chip-tag-text: #b45309;
+
+  --mantine-color-body: var(--color-bg);
+  --mantine-color-text: var(--color-text);
+  --mantine-color-dimmed: var(--color-text-muted);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -13,8 +37,32 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --color-bg: #242424;
+  --color-surface: #111111;
+  --color-surface-strong: #1b1b1b;
+  --color-text: rgba(255, 255, 255, 0.87);
+  --color-text-muted: rgba(255, 255, 255, 0.6);
+  --color-border: rgba(255, 255, 255, 0.2);
+  --color-border-strong: rgba(255, 255, 255, 0.45);
+  --color-shadow: rgba(0, 0, 0, 0.55);
+  --color-overlay: rgba(0, 0, 0, 0.85);
+  --color-accent: #0ea5e9;
+  --color-accent-strong: #0284c7;
+  --color-tooltip-bg: #111111;
+  --color-tooltip-text: rgba(255, 255, 255, 0.9);
+  --color-chip-category-bg: rgba(113, 184, 255, 0.12);
+  --color-chip-category-border: rgba(113, 184, 255, 0.35);
+  --color-chip-category-text: #b5ddff;
+  --color-chip-tag-bg: rgba(255, 203, 116, 0.12);
+  --color-chip-tag-border: rgba(255, 203, 116, 0.35);
+  --color-chip-tag-text: #ffdba0;
+}
+
 html, body {
-  background-color: #242424;
+  background-color: var(--color-bg);
+  color: var(--color-text);
   margin: 0;
 }
 

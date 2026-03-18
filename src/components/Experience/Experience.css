@@ -28,7 +28,7 @@
 }
 
 #experience .job-details:focus-visible {
-    outline: 2px solid #0ea5e9;
+    outline: 2px solid var(--color-accent);
     border-radius: 4px;
     outline-offset: 6px;
 }
@@ -50,7 +50,7 @@
 
 #experience .job .job-duration {
     font-size: 1.7vw;
-    color: gray;
+    color: var(--color-text-muted);
 }
 
 #experience .job .job-description {
@@ -71,7 +71,7 @@
 }
 
 #experience .job .job-description .highlight {
-    color: #0ea5e9;
+    color: var(--color-accent);
     font-weight: 700;
 }
 

@@ -1,43 +1,46 @@
-import { Avatar, Card, Group, Image, Text } from '@mantine/core';
 import './Project.css';
 
 function Project(props) {
   return (
-    <Card withBorder radius="md" p={0} className='card'>
-        <a href={props.link} target="_blank" rel="noopener noreferrer" className="project-link">
-            <Image
-                src={props.image}
-                className='image'
-            />
+        <a href={props.url} target="_blank" rel="noopener noreferrer" className="project-link">
+            <article className='project-item'>
+                <header className='project-header'>
+                    <h3 className='project-title'>{props.title}</h3>
+                    <p className='project-date'>{props.date}</p>
+                </header>
+
+                <p className='project-description'>{props.description}</p>
+
+                <div className='project-meta'>
+                    <div className='project-meta-line'>
+                        <span className='project-meta-label'>{props.labels.categories}:</span>
+                        <div className='project-chips'>
+                            {props.categories.map((category) => (
+                                <span key={category} className='project-chip category-chip'>
+                                    {category}
+                                </span>
+                            ))}
+                        </div>
+                    </div>
+
+                    <div className='project-meta-line'>
+                        <span className='project-meta-label'>{props.labels.tags}:</span>
+                        <div className='project-chips'>
+                            {props.tags.map((tag) => (
+                                <span key={tag} className='project-chip tag-chip'>
+                                    {tag}
+                                </span>
+                            ))}
+                        </div>
+                    </div>
+
+                    <p className='project-meta-line'>
+                        <span className='project-meta-label'>{props.labels.authors}:</span>
+                        <span>{props.authors.join(', ')}</span>
+                    </p>
+                </div>
+            </article>
         </a>
-        <div className='body'>
-            <Text className="tag" tt="uppercase" c="dimmed" fw={700}>
-                {props.tag}
-            </Text>
-            <a href={props.link} target="_blank" rel="noopener noreferrer" className="project-link">
-                <Text className='title' mt="xs" mb="md">
-                    {props.title}
-                </Text>
-            </a>
-            <Group wrap="nowrap" gap="xs">
-                <Group gap="xs" wrap="nowrap">
-                    <Avatar
-                        size={20}
-                        src="https://avatars.githubusercontent.com/u/68995086?s=400&u=95c793a5d170863afe7dd25cfc5fd09839b78da4&v=4"
-                    />
-                    <a href={'https://github.com/maariogutierrez'} target="_blank" rel="noopener noreferrer" className="project-link">
-                        <Text className="author">Mario Gutiérrez</Text>
-                    </a>
-                </Group>
-                <Text size="xs" c="dimmed">
-                •
-                </Text>
-                <Text className="date" c="dimmed">
-                {props.date}
-                </Text>
-            </Group>
-        </div>
-    </Card>
   )
 }
 

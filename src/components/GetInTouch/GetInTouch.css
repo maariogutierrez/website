@@ -16,6 +16,25 @@
     font-size: clamp(14px, 1.2vw, 18px);
 }
 
+:root:not([data-theme='dark']) #getInTouch .subtitle .mantine-Input-input,
+:root:not([data-theme='dark']) #getInTouch .subtitle .mantine-Textarea-input {
+    background-color: #ffffff;
+    border: 1px solid rgba(22, 33, 46, 0.28);
+    color: #16212e;
+    box-shadow: 0 2px 8px rgba(8, 23, 41, 0.06);
+}
+
+:root:not([data-theme='dark']) #getInTouch .subtitle .mantine-Input-input::placeholder,
+:root:not([data-theme='dark']) #getInTouch .subtitle .mantine-Textarea-input::placeholder {
+    color: #5f6b78;
+}
+
+:root:not([data-theme='dark']) #getInTouch .subtitle .mantine-Input-input:focus,
+:root:not([data-theme='dark']) #getInTouch .subtitle .mantine-Textarea-input:focus {
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.2);
+}
+
 #getInTouch .subtitle input::placeholder,
 #getInTouch .subtitle textarea::placeholder {
     font-size: clamp(13px, 1.1vw, 16px);

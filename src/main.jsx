@@ -6,11 +6,14 @@ import { MantineProvider } from '@mantine/core';
 import './index.css'
 import App from './App.jsx'
 import { LanguageProvider } from './context/LanguageContext.jsx'
+import { ThemeProvider } from './context/ThemeContext.jsx'
 
 createRoot(document.getElementById('root')).render(
-    <MantineProvider withGlobalStyles withNormalizeCSS>
-        <LanguageProvider>
-            <App />
-        </LanguageProvider>
-    </MantineProvider>
+    <ThemeProvider>
+        <MantineProvider withGlobalStyles withNormalizeCSS>
+            <LanguageProvider>
+                <App />
+            </LanguageProvider>
+        </MantineProvider>
+    </ThemeProvider>
 )

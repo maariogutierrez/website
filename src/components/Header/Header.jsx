@@ -1,13 +1,16 @@
 import { GithubIcon } from '@mantinex/dev-icons'
 import { FaLinkedin } from "react-icons/fa";
+import { MdDarkMode, MdLightMode } from "react-icons/md";
 import { ActionIcon, Group } from '@mantine/core';
 import * as HoverCard from '@radix-ui/react-hover-card';
 import './Header.css';
 import { useLanguage } from '../../context/LanguageContext';
+import { useTheme } from '../../context/ThemeContext';
 import { toast } from 'sonner';
 
 export default function Header() {
   const { language, changeLanguage } = useLanguage();
+  const { theme, toggleTheme } = useTheme();
   return (
     <>
       <div className='header desktop-only'>
@@ -54,6 +57,17 @@ export default function Header() {
             
           <Group gap="xs" justify="flex-end" wrap="nowrap">
             <ActionIcon
+              onClick={toggleTheme}
+              size="lg"
+              variant="default"
+              radius="xl"
+              aria-label={theme === 'dark' ? "Switch to light mode" : "Switch to dark mode"}
+              title={theme === 'dark' ? "Switch to light mode" : "Switch to dark mode"}
+              className="header-theme-toggle"
+            >
+              {theme === 'dark' ? <MdLightMode size={18} /> : <MdDarkMode size={18} />}
+            </ActionIcon>
+            <ActionIcon
               onClick={() => {
                 changeLanguage(language === 'en' ? 'es' : 'en');
                 toast.info(language === 'en' ? 'Idioma cambiado a español' : 'Language changed to English');
@@ -61,8 +75,8 @@ export default function Header() {
               size="lg"
               variant="default"
               radius="xl"
-              aria-label="Change Language"
-              title="Change Language"
+              aria-label={language === 'en' ? 'Change language to Spanish' : 'Change language to English'}
+              title={language === 'en' ? 'Change language to Spanish' : 'Change language to English'}
             >
               <img 
                 src={language === 'en' ? "https://flagcdn.com/w40/es.png" : "https://flagcdn.com/w40/gb.png"}
@@ -105,23 +119,36 @@ export default function Header() {
             <img src='media/favicon-192x192.png' />
             <h2 className="header__name">Mario Gutiérrez</h2>
           </div>
-          <ActionIcon
-            onClick={() => {
-              changeLanguage(language === 'en' ? 'es' : 'en');
-              toast.info(language === 'en' ? 'Idioma cambiado a español' : 'Language changed to English');
-            }}
-            size="lg"
-            variant="default"
-            radius="xl"
-            aria-label="Change Language"
-            title="Change Language"
-          >
-            <img 
-              src={language === 'en' ? "https://flagcdn.com/w40/es.png" : "https://flagcdn.com/w40/gb.png"}
-              className="header-flag"
-              alt={language === 'en' ? "Spanish" : "English"}
-            />
-          </ActionIcon>
+          <Group gap="4vw" wrap="nowrap">
+            <ActionIcon
+              onClick={toggleTheme}
+              size="lg"
+              variant="default"
+              radius="xl"
+              aria-label={theme === 'dark' ? "Switch to light mode" : "Switch to dark mode"}
+              title={theme === 'dark' ? "Switch to light mode" : "Switch to dark mode"}
+              className="header-theme-toggle"
+            >
+              {theme === 'dark' ? <MdLightMode size={18} /> : <MdDarkMode size={18} />}
+            </ActionIcon>
+            <ActionIcon
+              onClick={() => {
+                changeLanguage(language === 'en' ? 'es' : 'en');
+                toast.info(language === 'en' ? 'Idioma cambiado a español' : 'Language changed to English');
+              }}
+              size="lg"
+              variant="default"
+              radius="xl"
+              aria-label="Change Language"
+              title="Change Language"
+            >
+              <img 
+                src={language === 'en' ? "https://flagcdn.com/w40/es.png" : "https://flagcdn.com/w40/gb.png"}
+                className="header-flag"
+                alt={language === 'en' ? "Spanish" : "English"}
+              />
+            </ActionIcon>
+          </Group>
         </div>
       </div>
     </>

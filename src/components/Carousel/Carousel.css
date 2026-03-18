@@ -20,9 +20,9 @@
 }
 
 .gallery-carousel__controls button {
-  background: rgba(255, 255, 255, 0.75);
-  color: #111;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  background: color-mix(in srgb, var(--color-surface) 75%, transparent);
+  color: var(--color-text);
+  box-shadow: 0 8px 24px var(--color-shadow);
   border: none;
 }
 
@@ -30,12 +30,12 @@
   width: 30px;
   height: 4px;
   border-radius: 999px;
-  background-color: rgba(255, 255, 255, 0.4);
+  background-color: color-mix(in srgb, var(--color-surface) 40%, transparent);
   transition: background-color 120ms ease, width 120ms ease;
 }
 
 .gallery-carousel__indicator[data-active] {
-  background-color: var(--mantine-color-blue-5, #5c6ef8);
+  background-color: var(--color-accent);
   width: 38px;
 }
 
@@ -55,7 +55,7 @@
 .gallery-carousel__lightbox {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.85);
+  background: var(--color-overlay);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -75,7 +75,7 @@
 .gallery-carousel__lightbox-content img {
   max-height: 80vh;
   border-radius: 10px;
-  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.55);
+  box-shadow: 0 25px 45px var(--color-shadow);
 }
 
 @media (max-width: 768px) {
