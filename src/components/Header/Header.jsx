@@ -25,7 +25,10 @@ export default function Header() {
               </HoverCard.Trigger>
               <HoverCard.Content className="header-hovercard" sideOffset={12} align="start">
                 <div className="header-hovercard__location">
-                  <img src='media/location.png' alt="Location" />
+                  { (theme === 'dark') ?
+                   <img src='media/location.png' alt="Location" /> :
+                   <img src='media/location_black.png' alt="Location" />
+                  }
                   <p>Madrid, Spain</p>
                 </div>
                 <p className="header-hovercard__body">
