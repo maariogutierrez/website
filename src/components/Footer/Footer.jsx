@@ -6,8 +6,7 @@ import { useLanguage } from '../../context/LanguageContext';
 import './Footer.css';
 
 const CV_FILES = {
-  en: '/cv/mario_gutierrez_cv.pdf',
-  es: '/cv/mario_gutierrez_cv_spa.pdf',
+  en: '/cv/mario_gutierrez_cv.pdf'
 };
 
 export default function Footer() {
@@ -54,7 +53,7 @@ export default function Footer() {
           </Popover.Target>
           <Popover.Dropdown>
             <Text size="sm" fw={600} className="footer__popover-title">
-              {language === 'en' ? 'Choose language' : 'Elige idioma'}
+              {language === 'en' ? 'Download' : 'Descargar'}
             </Text>
             <Stack gap="xs" mt="xs">
               <Button
@@ -63,15 +62,7 @@ export default function Footer() {
                 className="footer__popover-btn"
                 onClick={() => handleDownload('en')}
               >
-                English
-              </Button>
-              <Button
-                variant="light"
-                size="xs"
-                className="footer__popover-btn"
-                onClick={() => handleDownload('es')}
-              >
-                Spanish
+                CV
               </Button>
             </Stack>
           </Popover.Dropdown>
