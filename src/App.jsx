@@ -35,7 +35,7 @@ function App() {
   , [])
   return (
     <>
-      { spinner ? 
+      { spinner &&
         <div className='spinner-center'>
           <BeatLoader
             color={theme === 'dark' ? "#ffffff" : "#0f172a"}
@@ -46,7 +46,7 @@ function App() {
             data-testid="loader"
           />
         </div>
-      :
+      }
       <>
         <Toaster position="top-center" theme={theme} />
         <Header></Header>
@@ -60,7 +60,6 @@ function App() {
         </div>
         <Footer></Footer>
       </>
-      }
     </>
   )
 }
