@@ -27,7 +27,7 @@ export default function GetInTouch() {
 
       <form
         id="getInTouch"
-        action="https://formsubmit.co/e84c2b3e6959d563f19f997358adccdc"
+        action="https://api.web3forms.com/submit"
         method="POST"
         target="fm-target"
         onSubmit={form.onSubmit((_, e) => {
@@ -36,10 +36,8 @@ export default function GetInTouch() {
           form.reset();
         })}
       >
-      <input type="text" name="_honey" style={{ display: 'none' }} tabIndex="-1" autoComplete="off" />
-      <input type="hidden" name="_subject" value="New message from portfolio" />
-      <input type="hidden" name="_template" value="table" />
-      <input type="hidden" name="_captcha" value="false" />
+      <input type="hidden" name="access_key" value="db5a8c9a-b75d-4320-8394-a1b9f72a5816" />
+      <input type="checkbox" name="botcheck" style={{ display: 'none' }} tabIndex={-1} autoComplete="off" />
       <Title
         order={2}
         style={{ fontFamily: 'ByteBounce' }}
