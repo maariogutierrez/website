@@ -2,10 +2,8 @@ import { Button, Group, SimpleGrid, Textarea, TextInput, Title } from '@mantine/
 import { useForm } from '@mantine/form';
 import { toast } from 'sonner';
 import './GetInTouch.css'
-import { useLanguage } from '../../context/LanguageContext';
 
 export default function GetInTouch() {
-  const { language } = useLanguage();
   const form = useForm({
     initialValues: {
       name: '',
@@ -31,7 +29,7 @@ export default function GetInTouch() {
         method="POST"
         target="fm-target"
         onSubmit={form.onSubmit((_, e) => {
-          toast.success(language === 'en' ? 'Message sent successfully' : 'Mensaje enviado con éxito');
+          toast.success('Message sent successfully');
           e?.currentTarget.submit();
           form.reset();
         })}
@@ -40,26 +38,26 @@ export default function GetInTouch() {
       <input type="checkbox" name="botcheck" style={{ display: 'none' }} tabIndex={-1} autoComplete="off" />
       <Title
         order={2}
-        style={{ fontFamily: 'ByteBounce' }}
+        style={{ fontFamily: 'JBMono, sans-serif' }}
         fw={900}
         ta="center"
         className='title'
       >
-        {language === 'en' ? 'Get in touch' : 'Contacto'}
+        Get in touch
       </Title>
 
       <SimpleGrid cols={{ base: 1, sm: 2 }} mt="md">
         <TextInput
-          label={language === 'en' ? 'Name' : 'Nombre'}
-          placeholder={language === 'en' ? 'Your name' : 'Tu nombre'}
+          label="Name"
+          placeholder="Your name"
           name="name"
           variant="filled"
           className='subtitle'
           {...form.getInputProps('name')}
         />
         <TextInput
-          label={language === 'en' ? 'Email' : 'Correo electrónico'}
-          placeholder={language === 'en' ? 'Your email' : 'Tu correo electrónico'}
+          label="Email"
+          placeholder="Your email"
           name="email"
           variant="filled"
           className='subtitle'
@@ -68,8 +66,8 @@ export default function GetInTouch() {
       </SimpleGrid>
 
       <TextInput
-        label={language === 'en' ? 'Subject' : 'Asunto'}
-        placeholder={language === 'en' ? 'Subject' : 'Asunto'}
+        label="Subject"
+        placeholder="Subject"
         mt="md"
         name="subject"
         variant="filled"
@@ -78,8 +76,8 @@ export default function GetInTouch() {
       />
       <Textarea
         mt="md"
-        label={language === 'en' ? 'Message' : 'Mensaje'}
-        placeholder={language === 'en' ? 'Your message' : 'Tu mensaje'}
+        label="Message"
+        placeholder="Your message"
         maxRows={10}
         minRows={5}
         autosize
@@ -91,7 +89,7 @@ export default function GetInTouch() {
 
         <Group justify="center" mt="xl">
           <Button type="submit" size="md" className='button'>
-            {language === 'en' ? 'Send message' : 'Enviar mensaje'}
+            Send message
           </Button>
         </Group>
       </form>

@@ -4,7 +4,6 @@ import { GithubIcon } from '@mantinex/dev-icons'
 import { Button, MultiSelect, Text } from '@mantine/core'
 import { GitHubCalendar } from 'react-github-calendar'
 import { useEffect, useState } from 'react'
-import { useLanguage } from '../../context/LanguageContext';
 
 function parseCsv(csvText) {
   const rows = [];
@@ -93,14 +92,14 @@ function parseSlashDate(dateString) {
   return Number.isNaN(parsed.getTime()) ? null : parsed;
 }
 
-function formatDate(dateString, language) {
+function formatDate(dateString) {
   const parsedDate = parseSlashDate(dateString);
 
   if (!parsedDate) {
     return dateString;
   }
 
-  return parsedDate.toLocaleDateString(language === 'en' ? 'en-US' : 'es-ES', {
+  return parsedDate.toLocaleDateString('en-US', {
     month: 'short',
     day: 'numeric',
     year: 'numeric'
@@ -108,7 +107,6 @@ function formatDate(dateString, language) {
 }
 
 function Portfolio() {
-  const { language } = useLanguage();
   const [projects, setProjects] = useState([]);
   const [isLoadingProjects, setIsLoadingProjects] = useState(true);
   const [selectedTags, setSelectedTags] = useState([]);
@@ -139,7 +137,7 @@ function Portfolio() {
           url: record.url,
           tags: splitCsvList(record.Tags),
           categories: splitCsvList(record.Category),
-          date: formatDate(record.Date, language)
+          date: formatDate(record.Date)
         }));
 
         if (!isCancelled) {
@@ -162,36 +160,27 @@ function Portfolio() {
     return () => {
       isCancelled = true;
     };
-  }, [language]);
+  }, []);
 
   const calendarTooltips = {
     activity: {
       text: (activity) => {
-        const isEn = language === 'en';
-        const contributionLabel = activity.count === 1 
-          ? (isEn ? 'contribution' : 'contribución') 
-          : (isEn ? 'contributions' : 'contribuciones');
-        const formattedDate = new Date(activity.date).toLocaleDateString(isEn ? 'en-US' : 'es-ES', {
+        const contributionLabel = activity.count === 1 ? 'contribution' : 'contributions';
+        const formattedDate = new Date(activity.date).toLocaleDateString('en-US', {
           month: 'short',
           day: 'numeric'
         });
-        return isEn 
-          ? `${activity.count} ${contributionLabel} on ${formattedDate}`
-          : `${activity.count} ${contributionLabel} el ${formattedDate}`;
+        return `${activity.count} ${contributionLabel} on ${formattedDate}`;
       },
       withArrow: true
     }
   }
 
   const labels = {
-    totalCount: language === 'en' 
-      ? '{{count}} contributions in the last year' 
-      : '{{count}} contribuciones en los últimos 365 días'
+    totalCount: '{{count}} contributions in the last year'
   }
 
-  const projectLabels = language === 'en'
-    ? { categories: 'Categories', tags: 'Tags', authors: 'Authors' }
-    : { categories: 'Categorías', tags: 'Etiquetas', authors: 'Autores' };
+  const projectLabels = { categories: 'Categories', tags: 'Tags', authors: 'Authors' };
 
   const uniqueTags = Array.from(new Set(projects.flatMap((project) => project.tags))).sort((a, b) =>
     a.localeCompare(b)
@@ -200,8 +189,8 @@ function Portfolio() {
     a.localeCompare(b)
   );
 
-  const tagsPlaceholder = language === 'en' ? 'Filter tags' : 'Filtrar etiquetas';
-  const categoriesPlaceholder = language === 'en' ? 'Filter categories' : 'Filtrar categorías';
+  const tagsPlaceholder = 'Filter tags';
+  const categoriesPlaceholder = 'Filter categories';
 
   const filteredProjects = projects.filter((project) => {
     const matchesTags = selectedTags.length === 0 || selectedTags.some((tag) => project.tags.includes(tag));
@@ -235,7 +224,7 @@ function Portfolio() {
             placeholder={categoriesPlaceholder}
             clearable
             searchable
-            nothingFoundMessage={language === 'en' ? 'No categories found' : 'No se encontraron categorías'}
+            nothingFoundMessage="No categories found"
           />
           <MultiSelect
             className='portfolio-search-input'
@@ -245,12 +234,12 @@ function Portfolio() {
             placeholder={tagsPlaceholder}
             clearable
             searchable
-            nothingFoundMessage={language === 'en' ? 'No tags found' : 'No se encontraron etiquetas'}
+            nothingFoundMessage="No tags found"
           />
         </div>
 
         {isLoadingProjects && (
-          <Text c="dimmed">{language === 'en' ? 'Loading projects...' : 'Cargando proyectos...'}</Text>
+          <Text c="dimmed">Loading projects...</Text>
         )}
 
         {!isLoadingProjects && displayedProjects.map((project) => (
@@ -269,7 +258,7 @@ function Portfolio() {
 
         {!isLoadingProjects && filteredProjects.length === 0 && (
           <Text c="dimmed">
-            {language === 'en' ? 'No projects match your search.' : 'Ningún proyecto coincide con tu búsqueda.'}
+            No projects match your search.
           </Text>
         )}
 
@@ -278,7 +267,7 @@ function Portfolio() {
             variant="dark"
             onClick={() => setVisibleResults((previous) => previous + 3)}
           >
-            {language === 'en' ? 'Show more results' : 'Mostrar más resultados'}
+            Show more results
           </Button>
         )}
       </div>

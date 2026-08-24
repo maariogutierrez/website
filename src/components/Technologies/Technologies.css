@@ -1,14 +1,21 @@
 #technologies {
     width: 70vw;
+    margin-bottom: 3vh;
+}
+
+#technologiesTitle {
+    font-size: 2.6rem;
 }
 
 @media (max-width: 768px) {
     #technologies {
         width: 90vw;
+        margin-top: 0.5rem;
+        margin-bottom: 1.25rem;
     }
 
     #technologiesTitle {
-        font-size: 12vw;
+        font-size: 2rem;
     }
 }
     
