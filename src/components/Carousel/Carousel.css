@@ -1,11 +1,16 @@
 .gallery-carousel {
   padding: 0;
+  margin-top: 3vh;
 }
 
 .gallery-carousel__title {
   margin-bottom: 1.75rem;
   text-align: center;
-  font-size: clamp(1.5rem, 2vw, 2rem);
+  font-size: 2.6rem;
+}
+
+#carouselTitle {
+  font-size: 2.6rem;
 }
 
 .gallery-carousel__root {
@@ -81,7 +86,7 @@
 @media (max-width: 768px) {
 
     #carouselTitle{
-      font-size: 12vw;
+      font-size: 2rem;
     }
 
     .gallery-carousel__root {

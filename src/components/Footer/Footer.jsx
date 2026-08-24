@@ -2,24 +2,17 @@ import { useState } from 'react';
 import { GithubIcon } from '@mantinex/dev-icons'
 import { FaLinkedin } from "react-icons/fa";
 import { ActionIcon, Button, Group, Popover, Stack, Text } from '@mantine/core';
-import { useLanguage } from '../../context/LanguageContext';
 import './Footer.css';
 
-const CV_FILES = {
-  en: '/cv/mario_gutierrez_cv.pdf'
-};
+const CV_FILE = '/cv/mario_gutierrez_cv.pdf';
 
 export default function Footer() {
-  const { language } = useLanguage();
   const [popoverOpened, setPopoverOpened] = useState(false);
 
-  const handleDownload = (lang) => {
-    const filePath = CV_FILES[lang];
-    if (!filePath) return;
-
+  const handleDownload = () => {
     const link = document.createElement('a');
-    link.href = filePath;
-    link.download = filePath.split('/').pop() || '';
+    link.href = CV_FILE;
+    link.download = CV_FILE.split('/').pop() || '';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -48,19 +41,19 @@ export default function Footer() {
               className="footer__download-btn"
               onClick={() => setPopoverOpened((o) => !o)}
             >
-              {language === 'en' ? 'Download my CV' : 'Descargar mi CV'}
+              Download my CV
             </button>
           </Popover.Target>
           <Popover.Dropdown>
             <Text size="sm" fw={600} className="footer__popover-title">
-              {language === 'en' ? 'Download' : 'Descargar'}
+              Download
             </Text>
             <Stack gap="xs" mt="xs">
               <Button
                 variant="light"
                 size="xs"
                 className="footer__popover-btn"
-                onClick={() => handleDownload('en')}
+                onClick={handleDownload}
               >
                 CV
               </Button>

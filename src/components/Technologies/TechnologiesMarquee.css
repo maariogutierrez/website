@@ -36,7 +36,7 @@
 }
 
 .tm-item span {
-  font-size: 1.7vw;
+  font-size: 1rem;
   color: var(--color-text);
 }
 
@@ -60,7 +60,7 @@
 }
 
 @media (max-width: 768px) {
-  .tm-item img { height: 8vw; }
-  .tm-item span { font-size: 6vw; }
-  .tm-list { gap: 4vw; }
+  .tm-item img { height: 1.8rem; }
+  .tm-item span { font-size: 0.85rem; }
+  .tm-list { gap: 1rem; }
 }

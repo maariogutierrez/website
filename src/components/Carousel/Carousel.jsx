@@ -3,10 +3,8 @@ import { Carousel as MantineCarousel } from '@mantine/carousel'
 import { Image } from '@mantine/core'
 import Autoplay from 'embla-carousel-autoplay'
 import './Carousel.css'
-import { useLanguage } from '../../context/LanguageContext';
 
 const Carousel = ({ images = [], options = {} }) => {
-  const { language, changeLanguage } = useLanguage();
 
   const [selectedImage, setSelectedImage] = useState(null)
   const normalizedOptions = options ?? {}
@@ -23,7 +21,7 @@ const Carousel = ({ images = [], options = {} }) => {
 
   return (
     <div>
-    { (language === 'en') ? <h2 id='carouselTitle'>Photos</h2> : <h2 id='carouselTitle'>Fotos</h2> }
+    <h2 id='carouselTitle'>Photos</h2>
     <section className="gallery-carousel">
       <MantineCarousel
         withIndicators

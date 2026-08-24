@@ -1,34 +1,22 @@
 import { useState } from 'react'
 import './Experience.css'
 import { IconChevronDown, IconChevronUp } from '@tabler/icons-react';
-import { useLanguage } from '../../context/LanguageContext';
 
-const JOBS_EN = [
+const JOBS = [
     {
         title: 'Research Intern in Universidad Politécnica de Madrid',
-        duration: 'Nov 2024 - Present',
+        duration: 'Nov 2024 - Aug 2026',
         description: (
             <>
-                Developing a <span className='highlight'>dashboard</span> to visualize <span className='highlight'>cyberthreats</span> for the <span className='highlight'>FCAS - Risk Assessment Framework Development</span> project, using <span className='highlight'>Flask</span> to build a web application that integrates with both <span className='highlight'>MongoDB</span> and <span className='highlight'>Elasticsearch</span> databases.
-            </>
-        )
-    }
-]
-
-const JOBS_ES = [
-    {
-        title: 'Becario de Investigación en Universidad Politécnica de Madrid',
-        duration: 'Nov 2024 - Actualidad',
-        description: (
-            <>
-                Desarrollando un <span className='highlight'>dashboard</span> para visualizar <span className='highlight'>ciberamenazas</span> para el proyecto <span className='highlight'>FCAS - Risk Assessment Framework Development</span>. Utilizando <span className='highlight'>Flask</span> para construir una aplicación web que se integra con las bases de datos <span className='highlight'>MongoDB</span> y <span className='highlight'>Elasticsearch</span>.
+                <span className='highlight'>Collaborated on the architectural design</span> and development of a risk assessment framework for the <span className='highlight'>Future Combat Air System (FCAS)</span> defense project.<br></br>
+                <span className='highlight'>Developed a cyberthreat dashboard</span> to deliver data-driven risk metrics for strategic decision-making.<br></br>
+                <span className='highlight'>Designed a dynamic risk assessment framework</span> using ontology-based modeling; engineered logic to automatically propagate and measure risk across interconnected asset networks.
             </>
         )
     }
 ]
 
 function Experience() {
-    const { language } = useLanguage();
     const [openJobIndex, setOpenJobIndex] = useState(null)
 
     const handleToggle = (index) => {
@@ -36,14 +24,11 @@ function Experience() {
     }
 
     return (
-        <>
-        {
-        ( language === 'en' ) ?
         <div>
             <h2 id='experienceTitle'>Experience</h2>
             <div id='experience'>
                 <div className='jobs'>
-                    {JOBS_EN.map((job, index) => {
+                    {JOBS.map((job, index) => {
                         const isOpen = openJobIndex === index
                         const descriptionId = `job-description-${index}`
                         return (
@@ -75,46 +60,6 @@ function Experience() {
                 </div>
             </div>
         </div>
-        :
-        <div>
-            <h2 id='experienceTitle'>Experiencia</h2>
-            <div id='experience'>
-                <div className='jobs'>
-                    {JOBS_ES.map((job, index) => {
-                        const isOpen = openJobIndex === index
-                        const descriptionId = `job-description-${index}`
-                        return (
-                            <div className='job' key={job.title}>
-                                <button
-                                    type='button'
-                                    className='job-details'
-                                    onClick={() => handleToggle(index)}
-                                    aria-expanded={isOpen}
-                                    aria-controls={descriptionId}
-                                >
-                                    {isOpen ? <IconChevronUp size={14} stroke={1.5} className='icon' /> : <IconChevronDown size={14} stroke={1.5} className='icon' />}
-                                    
-                                    <div className='job-title-and-duration'>
-                                        <div className='job-title'>{job.title}</div>
-                                        <div className='job-duration'>{job.duration}</div>
-                                    </div>
-                                </button>
-                                <div
-                                    id={descriptionId}
-                                    className={`job-description ${isOpen ? 'job-description--open' : ''}`}
-                                    role='region'
-                                    aria-hidden={!isOpen}
-                                >
-                                    {job.description}
-                                </div>
-                            </div>
-                        )
-                    })}
-                </div>
-            </div>
-        </div>
-        }
-        </>
     )
 }
 
