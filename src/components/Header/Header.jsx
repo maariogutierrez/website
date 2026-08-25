@@ -38,7 +38,7 @@ export default function Header() {
           <Group gap="xs" justify="flex-end" wrap="nowrap">
             <ActionIcon
               onClick={toggleTheme}
-              size="lg"
+              size="xl"
               variant="default"
               radius="xl"
               aria-label={theme === 'dark' ? "Switch to light mode" : "Switch to dark mode"}
@@ -54,7 +54,7 @@ export default function Header() {
               rel="noopener noreferrer"
               aria-label="GitHub"
               title="GitHub"
-              size="lg"
+              size="xl"
               variant="default"
               radius="xl"
             >
@@ -67,7 +67,7 @@ export default function Header() {
               rel="noopener noreferrer"
               aria-label="LinkedIn"
               title="LinkedIn"
-              size="lg"
+              size="xl"
               variant="default"
               radius="xl"
             >
