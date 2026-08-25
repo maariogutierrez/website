@@ -68,7 +68,7 @@ export default function Footer() {
             rel="noopener noreferrer"
             aria-label="GitHub"
             title="GitHub"
-            size="lg"
+            size="xl"
             variant="default"
             radius="xl"
           >
@@ -81,7 +81,7 @@ export default function Footer() {
             rel="noopener noreferrer"
             aria-label="LinkedIn"
             title="LinkedIn"
-            size="lg"
+            size="xl"
             variant="default"
             radius="xl"
           >

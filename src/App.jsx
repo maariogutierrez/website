@@ -8,14 +8,7 @@ import Header from './components/Header/Header'
 import Carousel from './components/Carousel/Carousel'
 import { Toaster } from 'sonner'
 import { useState, useEffect } from 'react'
-import { BeatLoader } from "react-spinners";
 import { useTheme } from './context/ThemeContext'
-
-const override = {
-  display: "block",
-  margin: "auto",
-  borderColor: "white",
-};
 
 function App() {
   const [spinner, setSpinner] = useState(true)
@@ -30,17 +23,16 @@ function App() {
   useEffect(() =>
     setTimeout(() => {
       setSpinner(false)
-    }, 1000)
+    }, 3000)
   , [])
   return (
     <>
       { spinner &&
         <div className='spinner-center'>
-          <BeatLoader
-            color={theme === 'dark' ? "#ffffff" : "#0f172a"}
-            loading={spinner}
-            cssOverride={override}
-            size={20}
+          <img
+            src='..\public\media\ascii.svg'
+            alt='Loading'
+            className='spinner-logo'
             aria-label="Loading Spinner"
             data-testid="loader"
           />
