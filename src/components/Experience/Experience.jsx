@@ -4,7 +4,7 @@ import { IconChevronDown, IconChevronUp } from '@tabler/icons-react';
 
 const JOBS = [
     {
-        title: 'Research Intern in Universidad Politécnica de Madrid',
+        title: 'Research Intern in UPM',
         duration: 'Nov 2024 - Aug 2026',
         description: (
             <>

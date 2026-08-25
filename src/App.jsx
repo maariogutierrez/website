@@ -30,7 +30,7 @@ function App() {
       { spinner &&
         <div className='spinner-center'>
           <img
-            src='..\public\media\ascii.svg'
+            src='https://raw.githubusercontent.com/maariogutierrez/maariogutierrez/main/asciifaster.svg'
             alt='Loading'
             className='spinner-logo'
             aria-label="Loading Spinner"
