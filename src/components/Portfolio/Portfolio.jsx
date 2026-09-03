@@ -1,9 +1,9 @@
 import './Portfolio.css'
 import Project from './Project'
-import { GithubIcon } from '@mantinex/dev-icons'
 import { Button, MultiSelect, Text } from '@mantine/core'
 import { GitHubCalendar } from 'react-github-calendar'
 import { useEffect, useState } from 'react'
+import { useTheme } from '../../context/ThemeContext';
 
 function parseCsv(csvText) {
   const rows = [];
@@ -112,6 +112,7 @@ function Portfolio() {
   const [selectedTags, setSelectedTags] = useState([]);
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [visibleResults, setVisibleResults] = useState(3);
+  const { theme } = useTheme();
 
   useEffect(() => {
     let isCancelled = false;
@@ -212,7 +213,7 @@ function Portfolio() {
     <div>
       <h2 id='portfolioTitle'>Portfolio</h2>
       <div className="heatmap">
-        <GitHubCalendar username="maariogutierrez" tooltips={calendarTooltips} labels={labels} />
+        <GitHubCalendar username="maariogutierrez" tooltips={calendarTooltips} labels={labels} colorScheme={theme}/>
       </div>
       <div id='portfolio'>
         <div className='portfolio-search'>

@@ -5,7 +5,7 @@ const THEME_STORAGE_KEY = 'portfolio-theme';
 
 const getInitialTheme = () => {
   if (typeof window === 'undefined') {
-    return 'dark';
+    return 'light';
   }
 
   const storedTheme = window.localStorage.getItem(THEME_STORAGE_KEY);
@@ -13,7 +13,7 @@ const getInitialTheme = () => {
     return storedTheme;
   }
 
-  return 'dark';
+  return 'light';
 };
 
 export const ThemeProvider = ({ children }) => {
