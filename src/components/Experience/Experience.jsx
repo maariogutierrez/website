@@ -4,7 +4,9 @@ import { IconChevronDown, IconChevronUp } from '@tabler/icons-react';
 
 const JOBS = [
     {
-        title: 'Research Intern in UPM',
+        title: 'Research Intern',
+        company: 'RSTI research group',
+        organization: 'Universidad Politécnica de Madrid',
         duration: 'Nov 2024 - Aug 2026',
         description: (
             <>
@@ -41,10 +43,14 @@ function Experience() {
                                     aria-controls={descriptionId}
                                 >
                                     {isOpen ? <IconChevronUp size={14} stroke={1.5} className='icon' /> : <IconChevronDown size={14} stroke={1.5} className='icon' />}
-                                    <div className='job-title-and-duration'>
+                                    <div className='job-heading'>
                                         <div className='job-title'>{job.title}</div>
-                                        <div className='job-duration'>{job.duration}</div>
+                                        <div className='job-company'>
+                                            <span>{job.company}</span>
+                                            <span className='job-organization'>{job.organization}</span>
+                                        </div>
                                     </div>
+                                    <div className='job-duration'>{job.duration}</div>
                                 </button>
                                 <div
                                     id={descriptionId}
