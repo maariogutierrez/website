@@ -11,8 +11,8 @@ const JOBS = [
         description: (
             <>
                 <span className='highlight'>Collaborated on the architectural design</span> and development of a risk assessment framework for the <span className='highlight'>Future Combat Air System (FCAS)</span> defense project.<br></br>
-                <span className='highlight'>Developed a cyberthreat dashboard</span> to deliver data-driven risk metrics for strategic decision-making.<br></br>
-                <span className='highlight'>Designed a dynamic risk assessment framework</span> using ontology-based modeling; engineered logic to automatically propagate and measure risk across interconnected asset networks.
+                · <span className='highlight'>Developed a cyberthreat dashboard</span> to deliver data-driven risk metrics for strategic decision-making.<br></br>
+                · <span className='highlight'>Designed a dynamic risk assessment framework</span> using ontology-based modeling; engineered logic to automatically propagate and measure risk across interconnected asset networks.
             </>
         )
     }

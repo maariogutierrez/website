@@ -43,7 +43,7 @@ function App() {
         <Header></Header>
         <div id='content'>
           <Experience></Experience>
-          <Technologies></Technologies>
+          {/* <Technologies></Technologies> */}
           <Portfolio></Portfolio>
           <Carousel images={IMAGES} options={OPTIONS}></Carousel>          
           <GetInTouch></GetInTouch>
