@@ -9,6 +9,7 @@ import Carousel from './components/Carousel/Carousel'
 import { Toaster } from 'sonner'
 import { useState, useEffect } from 'react'
 import { useTheme } from './context/ThemeContext'
+import { PacmanLoader } from 'react-spinners'
 
 function App() {
   const [spinner, setSpinner] = useState(true)
@@ -17,25 +18,31 @@ function App() {
   const IMAGES = [
     '/media/gallery/first_year_award.jpg',
     '/media/gallery/indesiahack_group_winners.jpg',
-    '/media/gallery/talent_arena.jpg'
+    '/media/gallery/talent_arena.jpg',
+    '/media/gallery/madrid_open_vol1.jpg'
   ]
 
-  useEffect(() =>
-    setTimeout(() => {
+  useEffect(() => {
+    if (!spinner) {
+      document.body.style.overflow = ''
+      return
+    }
+
+    document.body.style.overflow = 'hidden'
+    const timeoutId = setTimeout(() => {
       setSpinner(false)
     }, 3000)
-  , [])
+
+    return () => {
+      clearTimeout(timeoutId)
+      document.body.style.overflow = ''
+    }
+  }, [spinner])
   return (
     <>
       { spinner &&
-        <div className='spinner-center'>
-          <img
-            src='https://raw.githubusercontent.com/maariogutierrez/maariogutierrez/main/asciifaster.svg'
-            alt='Loading'
-            className='spinner-logo'
-            aria-label="Loading Spinner"
-            data-testid="loader"
-          />
+        <div className='spinner-center' aria-label="Loading" data-testid="loader">
+          <PacmanLoader color="#000000" size={28} margin={3} speedMultiplier={1.1} aria-label="Loading" />
         </div>
       }
       <>

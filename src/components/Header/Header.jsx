@@ -1,13 +1,12 @@
 import { GithubIcon } from '@mantinex/dev-icons'
 import { FaLinkedin } from "react-icons/fa";
-import { MdDarkMode, MdLightMode } from "react-icons/md";
 import { ActionIcon, Group } from '@mantine/core';
 import * as HoverCard from '@radix-ui/react-hover-card';
 import './Header.css';
 import { useTheme } from '../../context/ThemeContext';
 
 export default function Header() {
-  const { theme, toggleTheme } = useTheme();
+  const { theme } = useTheme();
 
   return (
     <>
@@ -16,7 +15,6 @@ export default function Header() {
           <HoverCard.Root openDelay={150} closeDelay={150}>
             <HoverCard.Trigger asChild>
               <div className='profile'>
-                <img src='https://raw.githubusercontent.com/maariogutierrez/maariogutierrez/main/ascii.svg' />
                 <h2 className="header__name">Mario Gutiérrez</h2>
               </div>
             </HoverCard.Trigger>
@@ -36,6 +34,7 @@ export default function Header() {
           </HoverCard.Root>
 
           <Group gap="xs" justify="flex-end" wrap="nowrap">
+            {/* Dark mode toggle, available again by uncommenting this block.
             <ActionIcon
               onClick={toggleTheme}
               size="xl"
@@ -47,6 +46,7 @@ export default function Header() {
             >
               {theme === 'dark' ? <MdLightMode size={18} /> : <MdDarkMode size={18} />}
             </ActionIcon>
+            */}
             <ActionIcon
               component="a"
               href="https://github.com/maariogutierrez"
@@ -79,10 +79,10 @@ export default function Header() {
       <div className='header mobile-only'>
         <div className='inner'>
           <div className='profile'>
-            <img src='https://raw.githubusercontent.com/maariogutierrez/maariogutierrez/main/ascii.svg' />
             <h2 className="header__name">Mario Gutiérrez</h2>
           </div>
           <Group gap="4vw" wrap="nowrap">
+            {/* Dark mode toggle, available again by uncommenting this block.
             <ActionIcon
               onClick={toggleTheme}
               size="lg"
@@ -94,6 +94,7 @@ export default function Header() {
             >
               {theme === 'dark' ? <MdLightMode size={18} /> : <MdDarkMode size={18} />}
             </ActionIcon>
+            */}
           </Group>
         </div>
       </div>

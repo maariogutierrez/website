@@ -209,12 +209,14 @@ function Portfolio() {
   const displayedProjects = filteredProjects.slice(0, visibleResults);
   const hasMoreResults = filteredProjects.length > visibleResults;
 
+  // To show the GH calendar, include this in the return
+  // <div className="heatmap">
+  //   <GitHubCalendar username="maariogutierrez" tooltips={calendarTooltips} labels={labels} colorScheme={theme}/>
+  // </div>
+
   return (
     <div>
-      <h2 id='portfolioTitle'>Portfolio</h2>
-      <div className="heatmap">
-        <GitHubCalendar username="maariogutierrez" tooltips={calendarTooltips} labels={labels} colorScheme={theme}/>
-      </div>
+      <h2 id='portfolioTitle'>Portfolio</h2>  
       <div id='portfolio'>
         <div className='portfolio-search'>
           <MultiSelect

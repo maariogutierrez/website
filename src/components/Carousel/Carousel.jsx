@@ -34,6 +34,7 @@ const Carousel = ({ images = [], options = {} }) => {
         onMouseLeave={autoplay.current.reset}
         classNames={{
           root: 'gallery-carousel__root',
+          slide: 'gallery-carousel__slide',
           controls: 'gallery-carousel__controls',
           indicator: 'gallery-carousel__indicator'
         }}

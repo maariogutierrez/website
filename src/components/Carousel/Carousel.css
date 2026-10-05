@@ -20,6 +20,12 @@
   overflow: visible;
 }
 
+.gallery-carousel__slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .gallery-carousel__controls {
   gap: 0.75rem;
 }
