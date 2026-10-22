@@ -1,9 +1,6 @@
 import './Portfolio.css'
 import Project from './Project'
-import { Button, MultiSelect, Text } from '@mantine/core'
-import { GitHubCalendar } from 'react-github-calendar'
 import { useEffect, useState } from 'react'
-import { useTheme } from '../../context/ThemeContext';
 
 function parseCsv(csvText) {
   const rows = [];
@@ -92,35 +89,27 @@ function parseSlashDate(dateString) {
   return Number.isNaN(parsed.getTime()) ? null : parsed;
 }
 
-function formatDate(dateString) {
-  const parsedDate = parseSlashDate(dateString);
-
-  if (!parsedDate) {
-    return dateString;
-  }
-
-  return parsedDate.toLocaleDateString('en-US', {
+function formatDate(date) {
+  return date.toLocaleDateString('en-US', {
     month: 'short',
-    day: 'numeric',
     year: 'numeric'
   });
 }
 
+const OWNER = 'Mario Gutiérrez';
+const PAGE_SIZE = 6;
+
 function Portfolio() {
   const [projects, setProjects] = useState([]);
-  const [isLoadingProjects, setIsLoadingProjects] = useState(true);
-  const [selectedTags, setSelectedTags] = useState([]);
-  const [selectedCategories, setSelectedCategories] = useState([]);
-  const [visibleResults, setVisibleResults] = useState(3);
-  const { theme } = useTheme();
+  const [status, setStatus] = useState('loading');
+  const [selectedField, setSelectedField] = useState(null);
+  const [visibleResults, setVisibleResults] = useState(PAGE_SIZE);
 
   useEffect(() => {
     let isCancelled = false;
 
     async function loadProjects() {
       try {
-        setIsLoadingProjects(true);
-
         const csvFile = '/Mario Gutierrez - Complete Portfolio Index - Sheet1.csv';
         const response = await fetch(encodeURI(csvFile));
 
@@ -131,27 +120,39 @@ function Portfolio() {
         const csvText = await response.text();
         const records = parseCsv(csvText);
 
-        const parsedProjects = records.map((record) => ({
-          title: record.Title,
-          authors: splitCsvList(record.Authors),
-          description: record.Description,
-          url: record.url,
-          tags: splitCsvList(record.Tags),
-          categories: splitCsvList(record.Category),
-          date: formatDate(record.Date)
-        }));
+        const parsedProjects = records
+          .map((record) => {
+            const tags = splitCsvList(record.Tags);
+            const fields = tags.filter((tag) => !tag.includes(':'));
+            const date = parseSlashDate(record.Date);
+
+            return {
+              title: record.Title,
+              coauthors: splitCsvList(record.Authors).filter((author) => author !== OWNER),
+              description: record.Description,
+              url: record.url,
+              fields,
+              fieldNotes: fields.map((field) => {
+                const topics = tags
+                  .filter((tag) => tag.startsWith(`${field}:`))
+                  .map((tag) => tag.slice(field.length + 1).trim());
+                return topics.length > 0 ? `${field}: ${topics.join(', ')}` : field;
+              }),
+              context: splitCsvList(record.Category).filter((category) => category !== 'Software'),
+              date,
+              dateLabel: date ? formatDate(date) : record.Date
+            };
+          })
+          .sort((a, b) => (b.date?.getTime() ?? 0) - (a.date?.getTime() ?? 0));
 
         if (!isCancelled) {
           setProjects(parsedProjects);
+          setStatus('ready');
         }
       } catch (error) {
         if (!isCancelled) {
-          setProjects([]);
+          setStatus('error');
           console.error('Failed to load portfolio projects from CSV:', error);
-        }
-      } finally {
-        if (!isCancelled) {
-          setIsLoadingProjects(false);
         }
       }
     }
@@ -163,115 +164,70 @@ function Portfolio() {
     };
   }, []);
 
-  const calendarTooltips = {
-    activity: {
-      text: (activity) => {
-        const contributionLabel = activity.count === 1 ? 'contribution' : 'contributions';
-        const formattedDate = new Date(activity.date).toLocaleDateString('en-US', {
-          month: 'short',
-          day: 'numeric'
-        });
-        return `${activity.count} ${contributionLabel} on ${formattedDate}`;
-      },
-      withArrow: true
-    }
-  }
-
-  const labels = {
-    totalCount: '{{count}} contributions in the last year'
-  }
-
-  const projectLabels = { categories: 'Categories', tags: 'Tags', authors: 'Authors' };
-
-  const uniqueTags = Array.from(new Set(projects.flatMap((project) => project.tags))).sort((a, b) =>
-    a.localeCompare(b)
-  );
-  const uniqueCategories = Array.from(new Set(projects.flatMap((project) => project.categories))).sort((a, b) =>
+  const fields = Array.from(new Set(projects.flatMap((project) => project.fields))).sort((a, b) =>
     a.localeCompare(b)
   );
 
-  const tagsPlaceholder = 'Filter tags';
-  const categoriesPlaceholder = 'Filter categories';
-
-  const filteredProjects = projects.filter((project) => {
-    const matchesTags = selectedTags.length === 0 || selectedTags.some((tag) => project.tags.includes(tag));
-    const matchesCategories =
-      selectedCategories.length === 0 ||
-      selectedCategories.some((category) => project.categories.includes(category));
-
-    return matchesTags && matchesCategories;
-  });
-
-  useEffect(() => {
-    setVisibleResults(3);
-  }, [selectedTags, selectedCategories]);
+  const filteredProjects = selectedField
+    ? projects.filter((project) => project.fields.includes(selectedField))
+    : projects;
 
   const displayedProjects = filteredProjects.slice(0, visibleResults);
   const hasMoreResults = filteredProjects.length > visibleResults;
 
-  // To show the GH calendar, include this in the return
-  // <div className="heatmap">
-  //   <GitHubCalendar username="maariogutierrez" tooltips={calendarTooltips} labels={labels} colorScheme={theme}/>
-  // </div>
+  const handleSelectField = (field) => {
+    setSelectedField(field);
+    setVisibleResults(PAGE_SIZE);
+  };
 
   return (
     <section className='section' aria-labelledby='portfolioTitle'>
       <h2 id='portfolioTitle' className='section__title'>Projects</h2>
       <div id='portfolio' className='section__body'>
-        <div className='portfolio-search'>
-          <MultiSelect
-            className='portfolio-search-input'
-            value={selectedCategories}
-            onChange={setSelectedCategories}
-            data={uniqueCategories}
-            placeholder={categoriesPlaceholder}
-            clearable
-            searchable
-            nothingFoundMessage="No categories found"
-          />
-          <MultiSelect
-            className='portfolio-search-input'
-            value={selectedTags}
-            onChange={setSelectedTags}
-            data={uniqueTags}
-            placeholder={tagsPlaceholder}
-            clearable
-            searchable
-            nothingFoundMessage="No tags found"
-          />
-        </div>
+        {status === 'loading' && <p className='portfolio-status'>Loading projects…</p>}
 
-        {isLoadingProjects && (
-          <Text c="dimmed">Loading projects...</Text>
+        {status === 'error' && (
+          <p className='portfolio-status'>Projects couldn't be loaded. Refresh the page to try again.</p>
         )}
 
-        {!isLoadingProjects && displayedProjects.map((project) => (
-          <Project
-            key={`${project.title}-${project.url}`}
-            title={project.title}
-            categories={project.categories}
-            tags={project.tags}
-            description={project.description}
-            authors={project.authors}
-            date={project.date}
-            url={project.url}
-            labels={projectLabels}
-          />
-        ))}
+        {status === 'ready' && (
+          <>
+            <div className='portfolio-filters' role='group' aria-label='Filter projects by field'>
+              {[null, ...fields].map((field) => (
+                <button
+                  key={field ?? 'all'}
+                  type='button'
+                  className='portfolio-filter'
+                  aria-pressed={selectedField === field}
+                  onClick={() => handleSelectField(field)}
+                >
+                  {field ?? 'All'}
+                </button>
+              ))}
+            </div>
 
-        {!isLoadingProjects && filteredProjects.length === 0 && (
-          <Text c="dimmed">
-            No projects match your search.
-          </Text>
-        )}
+            <div className='project-columns' aria-hidden='true'>
+              <span className='project-columns__project'>Project</span>
+              <span className='project-columns__description'>Description</span>
+              <span className='project-columns__date'>Date</span>
+            </div>
 
-        {!isLoadingProjects && hasMoreResults && (
-          <Button
-            variant="dark"
-            onClick={() => setVisibleResults((previous) => previous + 3)}
-          >
-            Show more results
-          </Button>
+            <ul className='projects'>
+              {displayedProjects.map((project) => (
+                <Project key={`${project.title}-${project.url}`} {...project} />
+              ))}
+            </ul>
+
+            {hasMoreResults && (
+              <button
+                type='button'
+                className='portfolio-more'
+                onClick={() => setVisibleResults((previous) => previous + PAGE_SIZE)}
+              >
+                Show more projects
+              </button>
+            )}
+          </>
         )}
       </div>
     </section>

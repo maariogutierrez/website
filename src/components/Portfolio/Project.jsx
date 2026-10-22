@@ -1,46 +1,25 @@
 import './Project.css';
 
-function Project(props) {
+function Project({ title, url, context, description, coauthors, fieldNotes, dateLabel }) {
   return (
-        <a href={props.url} target="_blank" rel="noopener noreferrer" className="project-link">
-            <article className='project-item'>
-                <header className='project-header'>
-                    <h3 className='project-title'>{props.title}</h3>
-                    <p className='project-date'>{props.date}</p>
-                </header>
+        <li className='project'>
+            <div className='project__name'>
+                <h3 className='project__title'>
+                    <a href={url} target="_blank" rel="noopener noreferrer">{title}</a>
+                </h3>
+                {context.length > 0 && <p className='project__note'>{context.join(', ')}</p>}
+            </div>
 
-                <p className='project-description'>{props.description}</p>
+            <div className='project__description'>
+                <p>{description}</p>
+                {coauthors.length > 0 && <p className='project__note'>With {coauthors.join(', ')}</p>}
+                {fieldNotes.map((note) => (
+                    <p key={note} className='project__note'>{note}</p>
+                ))}
+            </div>
 
-                <div className='project-meta'>
-                    <div className='project-meta-line'>
-                        <span className='project-meta-label'>{props.labels.categories}:</span>
-                        <div className='project-chips'>
-                            {props.categories.map((category) => (
-                                <span key={category} className='project-chip category-chip'>
-                                    {category}
-                                </span>
-                            ))}
-                        </div>
-                    </div>
-
-                    <div className='project-meta-line'>
-                        <span className='project-meta-label'>{props.labels.tags}:</span>
-                        <div className='project-chips'>
-                            {props.tags.map((tag) => (
-                                <span key={tag} className='project-chip tag-chip'>
-                                    {tag}
-                                </span>
-                            ))}
-                        </div>
-                    </div>
-
-                    <p className='project-meta-line'>
-                        <span className='project-meta-label'>{props.labels.authors}:</span>
-                        <span>{props.authors.join(', ')}</span>
-                    </p>
-                </div>
-            </article>
-        </a>
+            <p className='project__date'>{dateLabel}</p>
+        </li>
   )
 }
 

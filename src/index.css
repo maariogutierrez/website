@@ -22,12 +22,6 @@
   --color-accent-wash: #dde3fa;
   --color-tooltip-bg: #f5f5f5;
   --color-tooltip-text: #000000;
-  --color-chip-category-bg: #dde3fa;
-  --color-chip-category-border: #dde3fa;
-  --color-chip-category-text: #1f3bd4;
-  --color-chip-tag-bg: transparent;
-  --color-chip-tag-border: #d4d4d4;
-  --color-chip-tag-text: #5e5e5e;
 
   --font-sans: 'Archivo Variable', 'Helvetica Neue', Arial, sans-serif;
   --text-xs: 0.8125rem;
@@ -69,12 +63,6 @@
   --color-accent-strong: #0284c7;
   --color-tooltip-bg: #111111;
   --color-tooltip-text: rgba(255, 255, 255, 0.9);
-  --color-chip-category-bg: rgba(113, 184, 255, 0.12);
-  --color-chip-category-border: rgba(113, 184, 255, 0.35);
-  --color-chip-category-text: #b5ddff;
-  --color-chip-tag-bg: rgba(255, 203, 116, 0.12);
-  --color-chip-tag-border: rgba(255, 203, 116, 0.35);
-  --color-chip-tag-text: #ffdba0;
 }
 */
 
