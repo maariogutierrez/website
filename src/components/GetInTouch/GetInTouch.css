@@ -15,11 +15,6 @@
     box-shadow: none;
 }
 
-:root:not([data-theme='dark']) #getInTouch .subtitle .mantine-Input-input::placeholder,
-:root:not([data-theme='dark']) #getInTouch .subtitle .mantine-Textarea-input::placeholder {
-    color: var(--color-text-muted);
-}
-
 :root:not([data-theme='dark']) #getInTouch .subtitle .mantine-Input-input:focus,
 :root:not([data-theme='dark']) #getInTouch .subtitle .mantine-Textarea-input:focus {
     border-color: var(--color-accent);
