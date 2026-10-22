@@ -17,6 +17,7 @@ const theme = createTheme({
     },
     primaryColor: 'cobalt',
     primaryShade: 6,
+    defaultRadius: 0,
     black: '#000000',
     fontFamily: "'Archivo Variable', 'Helvetica Neue', Arial, sans-serif",
     headings: {

@@ -21,7 +21,20 @@ function App() {
 
   return (
     <>
-      <Toaster position="top-center" theme={theme} />
+      <Toaster
+        position="top-center"
+        theme={theme}
+        toastOptions={{
+          style: {
+            borderRadius: 0,
+            boxShadow: 'none',
+            border: '1px solid var(--color-border)',
+            background: 'var(--color-bg)',
+            color: 'var(--color-text)',
+            fontFamily: 'var(--font-sans)'
+          }
+        }}
+      />
       <Header></Header>
       <div id='content'>
         <Experience></Experience>

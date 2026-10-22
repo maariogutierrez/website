@@ -44,12 +44,11 @@ h2 {
   font-weight: 600;
   color: #ffffff;
 
-  transition: background-color 180ms ease, transform 180ms ease;
+  transition: background-color 180ms ease;
 }
 
 .button:hover {
   background-color: var(--color-accent-strong);
-  transform: scale(1.02);
 }
 
 @media (max-width: 768px) {
