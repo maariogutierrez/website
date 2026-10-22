@@ -6,10 +6,17 @@ export default function Header() {
     <header className='section hero'>
       <h1 className='hero__name'>Mario Gutiérrez</h1>
       <p className='hero__location'>Madrid, Spain</p>
-      <p className='hero__bio'>
-        I am a data engineer. I build pipelines that turn raw data into decisions.
-        I am particularly interested in Artificial Intelligence and Machine Learning.
-      </p>
+      <div className='hero__bio'>
+        <p>
+          I am a data engineer. I build pipelines that turn raw data into decisions.
+          I am particularly interested in Artificial Intelligence and Machine Learning.
+        </p>
+        <p>
+          I am studying a double master’s degree in Data Science, with a minor in Innovation and Entrepreneurship,
+          at the 28DIGITAL Master School: my first year at Universidad Politécnica de Madrid and my second at
+          KTH Royal Institute of Technology.
+        </p>
+      </div>
       <ul className='hero__links'>
         {PROFILE_LINKS.map((link) => (
           <li key={link.label}>

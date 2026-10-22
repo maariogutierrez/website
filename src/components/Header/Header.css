@@ -31,9 +31,16 @@
 
 .hero__bio {
   grid-column: 4 / 10;
-  margin: 0;
   font-size: var(--text-lg);
   line-height: 1.45;
+}
+
+.hero__bio p {
+  margin: 0;
+}
+
+.hero__bio p + p {
+  margin-top: 0.75em;
 }
 
 .hero__links {
