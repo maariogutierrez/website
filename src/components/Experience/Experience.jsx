@@ -4,6 +4,12 @@ import { IconChevronDown, IconChevronUp } from '@tabler/icons-react';
 
 const JOBS = [
     {
+        title: 'Research Assistant',
+        company: 'GSI research group',
+        organization: 'Universidad Politécnica de Madrid',
+        duration: 'Oct 2026 - Present'
+    },
+    {
         title: 'Research Intern',
         company: 'RSTI research group',
         organization: 'Universidad Politécnica de Madrid',
@@ -33,8 +39,32 @@ function Experience() {
                     {JOBS.map((job, index) => {
                         const isOpen = openJobIndex === index
                         const descriptionId = `job-description-${index}`
+                        const heading = (
+                            <>
+                                <div className='job-heading'>
+                                    <div className='job-title'>{job.title}</div>
+                                    <div className='job-company'>
+                                        <span>{job.company}</span>
+                                        <span className='job-organization'>{job.organization}</span>
+                                    </div>
+                                </div>
+                                <div className='job-duration'>{job.duration}</div>
+                            </>
+                        )
+
+                        if (!job.description) {
+                            return (
+                                <div className='job' key={`${job.title}-${job.company}`}>
+                                    <div className='job-details job-details--static'>
+                                        <span className='icon' aria-hidden='true' />
+                                        {heading}
+                                    </div>
+                                </div>
+                            )
+                        }
+
                         return (
-                            <div className='job' key={job.title}>
+                            <div className='job' key={`${job.title}-${job.company}`}>
                                 <button
                                     type='button'
                                     className='job-details'
@@ -43,14 +73,7 @@ function Experience() {
                                     aria-controls={descriptionId}
                                 >
                                     {isOpen ? <IconChevronUp size={14} stroke={1.5} className='icon' /> : <IconChevronDown size={14} stroke={1.5} className='icon' />}
-                                    <div className='job-heading'>
-                                        <div className='job-title'>{job.title}</div>
-                                        <div className='job-company'>
-                                            <span>{job.company}</span>
-                                            <span className='job-organization'>{job.organization}</span>
-                                        </div>
-                                    </div>
-                                    <div className='job-duration'>{job.duration}</div>
+                                    {heading}
                                 </button>
                                 <div
                                     id={descriptionId}

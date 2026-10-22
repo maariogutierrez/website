@@ -28,6 +28,10 @@
     text-align: left;
 }
 
+#experience .job-details--static {
+    cursor: default;
+}
+
 #experience .job-details:focus-visible {
     outline: 2px solid var(--color-accent);
     outline-offset: 6px;
