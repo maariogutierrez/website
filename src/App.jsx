@@ -7,12 +7,9 @@ import GetInTouch from './components/GetInTouch/GetInTouch'
 import Header from './components/Header/Header'
 import Carousel from './components/Carousel/Carousel'
 import { Toaster } from 'sonner'
-import { useState, useEffect } from 'react'
 import { useTheme } from './context/ThemeContext'
-import { PacmanLoader } from 'react-spinners'
 
 function App() {
-  const [spinner, setSpinner] = useState(true)
   const { theme } = useTheme()
   const OPTIONS = { loop: true }
   const IMAGES = [
@@ -22,41 +19,18 @@ function App() {
     '/media/gallery/madrid_open_vol1.jpg'
   ]
 
-  useEffect(() => {
-    if (!spinner) {
-      document.body.style.overflow = ''
-      return
-    }
-
-    document.body.style.overflow = 'hidden'
-    const timeoutId = setTimeout(() => {
-      setSpinner(false)
-    }, 3000)
-
-    return () => {
-      clearTimeout(timeoutId)
-      document.body.style.overflow = ''
-    }
-  }, [spinner])
   return (
     <>
-      { spinner &&
-        <div className='spinner-center' aria-label="Loading" data-testid="loader">
-          <PacmanLoader color="#000000" size={28} margin={3} speedMultiplier={1.1} aria-label="Loading" />
-        </div>
-      }
-      <>
-        <Toaster position="top-center" theme={theme} />
-        <Header></Header>
-        <div id='content'>
-          <Experience></Experience>
-          {/* <Technologies></Technologies> */}
-          <Portfolio></Portfolio>
-          <Carousel images={IMAGES} options={OPTIONS}></Carousel>          
-          <GetInTouch></GetInTouch>
-        </div>
-        <Footer></Footer>
-      </>
+      <Toaster position="top-center" theme={theme} />
+      <Header></Header>
+      <div id='content'>
+        <Experience></Experience>
+        {/* <Technologies></Technologies> */}
+        <Portfolio></Portfolio>
+        <Carousel images={IMAGES} options={OPTIONS}></Carousel>          
+        <GetInTouch></GetInTouch>
+      </div>
+      <Footer></Footer>
     </>
   )
 }
