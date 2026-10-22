@@ -1,5 +1,6 @@
 import '@mantine/core/styles.css';
 import '@mantine/carousel/styles.css';
+import '@fontsource-variable/archivo/wdth.css';
 
 import { createRoot } from 'react-dom/client'
 import { MantineProvider, createTheme } from '@mantine/core';
@@ -16,7 +17,12 @@ const theme = createTheme({
     },
     primaryColor: 'cobalt',
     primaryShade: 6,
-    black: '#000000'
+    black: '#000000',
+    fontFamily: "'Archivo Variable', 'Helvetica Neue', Arial, sans-serif",
+    headings: {
+        fontFamily: "'Archivo Variable', 'Helvetica Neue', Arial, sans-serif",
+        fontWeight: '600'
+    }
 })
 
 createRoot(document.getElementById('root')).render(

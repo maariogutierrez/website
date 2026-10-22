@@ -1,7 +1,7 @@
 .header {
   background-color: var(--color-bg);
   color: var(--color-text);
-  font-family: 'JBMono', sans-serif;
+  font-family: var(--font-sans);
 }
 
 .header .inner {
@@ -41,9 +41,7 @@
 .header-hovercard__location {
   margin: 0;
   font-weight: 600;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
-  font-size: 0.9rem;
+  font-size: var(--text-sm);
   color: var(--color-text-muted);
 
   display: flex;
@@ -59,7 +57,7 @@
 
 .header-hovercard__body {
   margin: 0;
-  font-size: 1.08rem;
+  font-size: var(--text-md);
   line-height: 1.6;
 }
 
@@ -109,7 +107,7 @@
   }
 
   .header__name {
-    font-size: 1.7rem;
+    font-size: var(--text-xl);
     cursor: default;
     user-select: none;
   }

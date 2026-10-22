@@ -38,8 +38,7 @@ export default function GetInTouch() {
       <input type="checkbox" name="botcheck" style={{ display: 'none' }} tabIndex={-1} autoComplete="off" />
       <Title
         order={2}
-        style={{ fontFamily: 'JBMono, sans-serif' }}
-        fw={900}
+        fw={600}
         ta="center"
         className='title'
       >
