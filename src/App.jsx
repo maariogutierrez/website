@@ -5,19 +5,12 @@ import Experience from './components/Experience/Experience'
 import Footer from './components/Footer/Footer'
 import GetInTouch from './components/GetInTouch/GetInTouch'
 import Header from './components/Header/Header'
-import Carousel from './components/Carousel/Carousel'
+import Photos from './components/Photos/Photos'
 import { Toaster } from 'sonner'
 import { useTheme } from './context/ThemeContext'
 
 function App() {
   const { theme } = useTheme()
-  const OPTIONS = { loop: true }
-  const IMAGES = [
-    '/media/gallery/first_year_award.jpg',
-    '/media/gallery/indesiahack_group_winners.jpg',
-    '/media/gallery/talent_arena.jpg',
-    '/media/gallery/madrid_open_vol1.jpg'
-  ]
 
   return (
     <>
@@ -40,7 +33,7 @@ function App() {
         <Experience></Experience>
         {/* <Technologies></Technologies> */}
         <Portfolio></Portfolio>
-        <Carousel images={IMAGES} options={OPTIONS}></Carousel>          
+        <Photos></Photos>
         <GetInTouch></GetInTouch>
       </div>
       <Footer></Footer>

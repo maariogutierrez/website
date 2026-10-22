@@ -1,5 +1,4 @@
 import '@mantine/core/styles.css';
-import '@mantine/carousel/styles.css';
 import '@fontsource-variable/archivo/wdth.css';
 
 import { createRoot } from 'react-dom/client'

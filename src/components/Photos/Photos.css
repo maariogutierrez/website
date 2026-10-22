@@ -1,0 +1,35 @@
+.photos {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem var(--grid-gutter);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.photo {
+  margin: 0;
+}
+
+/* Crop from the top so faces stay in frame. */
+.photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  object-position: center top;
+  background-color: var(--color-border);
+}
+
+.photo figcaption {
+  margin-top: 0.5rem;
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+
+@media (max-width: 768px) {
+  .photos {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
