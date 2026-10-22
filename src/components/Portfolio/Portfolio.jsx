@@ -215,9 +215,9 @@ function Portfolio() {
   // </div>
 
   return (
-    <div>
-      <h2 id='portfolioTitle'>Portfolio</h2>  
-      <div id='portfolio'>
+    <section className='section' aria-labelledby='portfolioTitle'>
+      <h2 id='portfolioTitle' className='section__title'>Projects</h2>
+      <div id='portfolio' className='section__body'>
         <div className='portfolio-search'>
           <MultiSelect
             className='portfolio-search-input'
@@ -274,7 +274,7 @@ function Portfolio() {
           </Button>
         )}
       </div>
-    </div>
+    </section>
   )
 }
 

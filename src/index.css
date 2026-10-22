@@ -38,6 +38,11 @@
   --text-2xl: 2.25rem;
   --text-3xl: 3rem;
 
+  --grid-max: 1360px;
+  --grid-margin: 3rem;
+  --grid-gutter: 1.5rem;
+  --section-space: 6rem;
+
   --mantine-color-body: var(--color-bg);
   --mantine-color-text: var(--color-text);
   --mantine-color-dimmed: var(--color-text-muted);
@@ -79,3 +84,9 @@ html, body {
   margin: 0;
 }
 
+@media (max-width: 768px) {
+  :root {
+    --grid-margin: 1rem;
+    --section-space: 4rem;
+  }
+}

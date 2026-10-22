@@ -20,9 +20,9 @@ const Carousel = ({ images = [], options = {} }) => {
   )
 
   return (
-    <div>
-    <h2 id='carouselTitle'>Photos</h2>
-    <section className="gallery-carousel">
+    <section className='section' aria-labelledby='carouselTitle'>
+    <h2 id='carouselTitle' className='section__title'>Photos</h2>
+    <div className="gallery-carousel section__body">
       <MantineCarousel
         withIndicators
         slideSize="33%"
@@ -67,8 +67,8 @@ const Carousel = ({ images = [], options = {} }) => {
           </div>
         </div>
       )}
-    </section>
     </div>
+    </section>
   )
 }
 

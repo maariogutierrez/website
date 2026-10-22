@@ -8,9 +8,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 2vh 0;
-  margin: var(--mantine-spacing-md) 15vw;
-  box-shadow: 0 3px 5px -4px var(--color-shadow);
+  box-sizing: border-box;
+  max-width: var(--grid-max);
+  margin: 0 auto;
+  padding: 1.5rem var(--grid-margin) 0;
 }
 
 .profile {
@@ -96,9 +97,7 @@
   }
 
   .header .inner {
-    padding: 4vw 5vw;
-    margin: 0;
-    border-bottom: none;
+    padding-top: 1rem;
   }
 
   .profile {

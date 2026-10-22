@@ -1,16 +1,18 @@
 .footer {
-  margin-top: 5vh;
-  border-top: 1px solid var(--color-border-strong);
+  border-top: 1px solid var(--color-border);
   background-color: var(--color-bg);
   color: var(--color-text);
   font-family: var(--font-sans);
 }
 
-.inner {
+.footer .inner {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: var(--mantine-spacing-md) 5vw;
+  box-sizing: border-box;
+  max-width: var(--grid-max);
+  margin: 0 auto;
+  padding: 1.5rem var(--grid-margin);
 }
 
 .footer__download-btn {

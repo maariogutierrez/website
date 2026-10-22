@@ -1,4 +1,4 @@
-import { Button, Group, SimpleGrid, Textarea, TextInput, Title } from '@mantine/core';
+import { Button, Group, SimpleGrid, Textarea, TextInput } from '@mantine/core';
 import { useForm } from '@mantine/form';
 import { toast } from 'sonner';
 import './GetInTouch.css'
@@ -20,11 +20,13 @@ export default function GetInTouch() {
   });
 
   return (
-    <>
+    <section className='section' aria-labelledby='getInTouchTitle'>
+      <h2 id='getInTouchTitle' className='section__title'>Get in touch</h2>
       <iframe name="fm-target" style={{ display: 'none' }} title="hidden-submit-target" />
 
       <form
         id="getInTouch"
+        className='section__body'
         action="https://api.web3forms.com/submit"
         method="POST"
         target="fm-target"
@@ -36,16 +38,7 @@ export default function GetInTouch() {
       >
       <input type="hidden" name="access_key" value="db5a8c9a-b75d-4320-8394-a1b9f72a5816" />
       <input type="checkbox" name="botcheck" style={{ display: 'none' }} tabIndex={-1} autoComplete="off" />
-      <Title
-        order={2}
-        fw={600}
-        ta="center"
-        className='title'
-      >
-        Get in touch
-      </Title>
-
-      <SimpleGrid cols={{ base: 1, sm: 2 }} mt="md">
+      <SimpleGrid cols={{ base: 1, sm: 2 }}>
         <TextInput
           label="Name"
           placeholder="Your name"
@@ -86,12 +79,12 @@ export default function GetInTouch() {
         {...form.getInputProps('message')}
       />
 
-        <Group justify="center" mt="xl">
+        <Group justify="flex-start" mt="xl">
           <Button type="submit" size="md" className='button'>
             Send message
           </Button>
         </Group>
       </form>
-    </>
+    </section>
   );
 }

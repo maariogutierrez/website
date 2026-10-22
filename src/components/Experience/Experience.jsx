@@ -26,9 +26,9 @@ function Experience() {
     }
 
     return (
-        <div>
-            <h2 id='experienceTitle'>Experience</h2>
-            <div id='experience'>
+        <section className='section' aria-labelledby='experienceTitle'>
+            <h2 id='experienceTitle' className='section__title'>Experience</h2>
+            <div id='experience' className='section__body'>
                 <div className='jobs'>
                     {JOBS.map((job, index) => {
                         const isOpen = openJobIndex === index
@@ -65,7 +65,7 @@ function Experience() {
                     })}
                 </div>
             </div>
-        </div>
+        </section>
     )
 }
 

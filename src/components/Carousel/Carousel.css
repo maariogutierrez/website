@@ -1,22 +1,6 @@
-.gallery-carousel {
-  padding: 0;
-  margin-top: 3vh;
-}
-
-.gallery-carousel__title {
-  margin-bottom: 1.75rem;
-  text-align: center;
-  font-size: var(--text-2xl);
-}
-
-#carouselTitle {
-  font-size: var(--text-2xl);
-}
-
 .gallery-carousel__root {
-  width: 70vw;
+  width: 100%;
   height: 22vw;
-  margin: 0 auto;
   overflow: visible;
 }
 
@@ -91,12 +75,7 @@
 
 @media (max-width: 768px) {
 
-    #carouselTitle{
-      font-size: var(--text-xl);
-    }
-
     .gallery-carousel__root {
-      width: 90vw;
       height: 65vw;
     }
 
