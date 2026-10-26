@@ -7,6 +7,13 @@ import './index.css'
 import App from './App.jsx'
 import { ThemeProvider } from './context/ThemeContext.jsx'
 
+// The hero title waits for Archivo so it never renders (and wraps) in the fallback font first.
+const markFontsReady = () => document.documentElement.classList.add('fonts-ready')
+Promise.race([
+    document.fonts.load("800 1em 'Archivo Variable'", 'Mario Gutiérrez'),
+    new Promise((resolve) => setTimeout(resolve, 3000))
+]).finally(markFontsReady)
+
 const theme = createTheme({
     colors: {
         cobalt: [
